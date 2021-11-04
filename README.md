@@ -8,3 +8,5 @@
   <img src="preview_pictures/2.PNG">
   <br>
 </p>
+
+No framework, no complicated DB. Just pure HTML, JS + JQuery, Firestore
