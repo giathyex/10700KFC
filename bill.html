@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10700KFC</title>
+    <!-- CSS files-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="assets/fonts/fontawesome/css/fontawesome-all.min.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/ico.ico" type="image/x-icon">
+    <!-- JQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body class="bill">
+    <section id="bill-print" class="bill-print">
+        <div class="bill-print-header">
+            <h1>10700KFC</h1>
+            <p id="datetime">
+            </p>
+        </div>
+        <div class="bill-print-user">
+            <p class="bill-print-user-id">
+                <span>Mã số bàn:</span>
+                <span id="tablenum">
+                </span>
+            </p>
+        </div>
+        <div class="bill-print-products" id="detaillist">
+        </div>
+        <div class="bill-print-total">
+            <p>
+                <span>Tổng cộng:</span>
+                <span id="total">
+                </span>
+            </p>
+        </div>
+    </section>
+    <section class="bill-actions">
+        <button id="print">In hóa đơn</button>
+        <button id="new">Đơn mới</button>
+    </section>
+
+    <script>
+        function loadbill() {
+            var tablen = localStorage.getItem("tabno");
+            $("#tablenum").append(tablen);
+
+            var totalpri = localStorage.getItem("totalpr");
+            $("#total").append("<h4>" + totalpri + "</h4>");
+
+            var detaill = localStorage.getItem("orders");
+            $("#detaillist").append(detaill);
+
+            var currentdate = new Date();
+            var datetime = currentdate.getDate() + "/" +
+                (currentdate.getMonth() + 1) + "/" +
+                currentdate.getFullYear() + " - " +
+                currentdate.getHours() + ":" +
+                currentdate.getMinutes();
+            $("#datetime").append(datetime);
+        }
+
+        loadbill();
+
+        (function() {
+            let printButton = document.querySelector('#print');
+            let newButton = document.querySelector('#new');
+
+            printButton.addEventListener('click', function(e) {
+                window.print();
+            });
+            newButton.addEventListener('click', function(e) {
+                window.location = './index.php';
+            });
+        })();
+    </script>
+</body>
+
+</html>
