@@ -156,6 +156,8 @@
                 let index = e.srcElement.dataset.index;
                 let name = e.srcElement.dataset.name;
                 let value = e.srcElement.dataset.value;
+                
+                if(typeof(name) == "undefined" || typeof(value) == "undefined") return;
 
                 var pa = name + ' - ' + value + ' VND';
                 billProducts.innerHTML += pa + "<br>";
