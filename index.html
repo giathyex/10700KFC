@@ -30,9 +30,17 @@
 
     <!-- Main page -->
     <section class="main" id="main-page">
-
+        
         <!-- Food menu -->
         <section class="products" id="foodlist">
+            <!-- Search bar -->
+            <section class="search">
+                <form>
+                    <div>
+                        <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="Tìm kiếm sản phẩm...">
+                    </div>
+                </form>
+            </section>
         </section>
 
         <!-- Right panel -->
@@ -175,6 +183,21 @@
         });
     }
 
+    // Search function
+    function searchProduct() {
+        let input = document.getElementById('myInput').value
+        input=input.toLowerCase();
+        let x = document.getElementsByClassName("product");
+        
+        for (i = 0; i < x.length; i++) { 
+            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display="none";
+            }
+            else {
+                x[i].style.display="list-item";
+            }
+        }
+    }
 
     // Enable checkout button after table number is entered
     document.getElementById("tablen").addEventListener("keyup", function() {
