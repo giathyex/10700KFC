@@ -17,6 +17,15 @@ body.bill {
     flex-direction: column;
 }
 
+#myInput {
+    width: 100%; 
+    font-size: 16px; 
+    padding: 10px 800px 10px 5px; 
+    border: 1px solid rgb(155, 155, 155); 
+    margin-bottom: 12px; 
+    text-align: left;
+}
+
 section.products {
     flex: 0 0 70%;
     padding: 25px;
