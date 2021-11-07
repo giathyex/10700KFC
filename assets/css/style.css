@@ -121,12 +121,13 @@ input:focus {
 
 section.products {
     flex: 0 0 70%;
-    padding: 25px;
+    padding: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
     height: fit-content;
+    
 }
 
 section.products>div {
@@ -340,3 +341,43 @@ section.bill-checkout button:hover {
         display: none;
     }
 }
+
+.bg-modal {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+    display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-contents {
+	height: 300px;
+	width: 500px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+}
+
+.button-add-to-cart {
+    background-color: #fc2a2a;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-family: "Hind", sans-serif;
+    color: #000000;
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 42px;
+	color: #333;
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+
