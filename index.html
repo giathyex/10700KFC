@@ -30,19 +30,21 @@
 
     <!-- Search bar -->
     <center>
-    <div class="Card">
-        <div class="CardInner">
-        <label>Search for your favourite food</label>
-        <div class="container">
-          <div class="Icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <div class="InputContainer">
-            <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="It just can't be chicken..."/>
-          </div>
+        <div class="Card">
+            <div class="CardInner">
+                <div class="container">
+                    <div class="InputContainer">
+                        <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="Tìm món ăn yêu thích của bạn" />
+                    </div>
+                    <div class="Icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
     </center>
 
     <!-- Main page -->
@@ -69,6 +71,7 @@
                 <h2>
                     <p style="text-align:right;" id="totallabel"></p>
                 </h2>
+                <br>
             </div>
 
             <!-- Table input box -->
@@ -88,16 +91,21 @@
     </section>
 
     <div class="bg-modal">
-        <center>
         <div class="modal-contents">
-            <div class="close">+</div>
+            <div class="close2"><b>x</b></div>
             <form action="">
-                <label class="md-food-name"></label><br>
-                <label class="md-price"></label>
-                <input type="button" class="button-add-to-cart" value="Add to cart"></input>
+                <div class="column">
+                    <img class="md-detail-pics"></img>
+                </div>
+                <div class="column">
+                    <h2 class="md-food-name"></h2>
+                    <h3 class="md-price"></h3>
+                    <hr>
+                    <p class="md-detail"></p>
+                    <input type="button" class="button-add-to-cart" value="Thêm vào giỏ hàng"></input>
+                </div>
             </form>
         </div>
-        </center>
     </div>
 </body>
 

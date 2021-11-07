@@ -26,7 +26,7 @@ function renderList(doc, indexc) {
     namec.innerHTML = doc.data().name;
 
     var imgc = document.createElement("img");
-    imgc.src = "assets/images/hamburguer.svg";
+    imgc.src = doc.data().pic;
     imgc.alt = doc.data().name;
 
 
@@ -34,7 +34,9 @@ function renderList(doc, indexc) {
         'class': "product",
         'data-index': indexc,
         'data-name': doc.data().name,
-        'data-value': doc.data().price
+        'data-value': doc.data().price,
+        'data-pic': doc.data().pic,
+        'data-detail': doc.data().detail
     });
     $(divc).append(imgc);
     $(divc).append("<br><br>");
@@ -71,47 +73,61 @@ function clickwaiter() {
     let products = document.querySelectorAll('#foodlist');
     let billProducts = document.querySelector('#productslist');
     let productsInput = document.querySelector('#productslist');
-    
+
     let t = { total: 0 };
 
     productsInput.value = '';
 
-    products.forEach(product => {showInfo(product, billProducts, productsInput, t)});
-
-    
+    products.forEach(product => { showInfo(product, billProducts, productsInput, t) });
 }
 
 
 // Show pop-up function
-function showInfo (product, billProducts, productsInput, total) {
+function showInfo(product, billProducts, productsInput, total) {
     let temp;
     product.addEventListener('click', function(e) {
         temp = e;
-        document.querySelector('.bg-modal').style.display = "flex"
+
+        // Click outside the box
+        if (typeof(e.srcElement.dataset.name) == "undefined" || typeof(e.srcElement.dataset.value) == "undefined") return;
+
+        document.querySelector('.bg-modal').style.display = "flex";
+        $('.md-detail-pics').attr("src", e.srcElement.dataset.pic);
         $('.md-food-name').text(e.srcElement.dataset.name);
-        $('.md-price').text(e.srcElement.dataset.value);
+        $('.md-price').text(e.srcElement.dataset.value + " VND");
+        $('.md-detail').text(e.srcElement.dataset.detail);
+
+        // Stop the UI from scrolling down
+        $(window).scrollTop(0);
+        document.body.style.overflow = 'hidden';
     });
-    document.querySelector('.button-add-to-cart').addEventListener("click", function(){
+    document.querySelector('.button-add-to-cart').addEventListener("click", function() {
         addToCart(temp, billProducts, productsInput, total);
     });
     return product;
 }
 
 // Add close button
-document.querySelector('.close').addEventListener("click", function() {
-	document.querySelector('.bg-modal').style.display = "none";
+document.querySelector('.close2').addEventListener("click", function() {
+    // Scrolling again
+    document.body.style.overflow = '';
+    document.querySelector('.bg-modal').style.display = "none";
+    $('.md-detail-pics').attr("src", "");
+    $('.md-food-name').text("");
+    $('.md-price').text("");
+    $('.md-detail').text("");
 });
 
 
 // Add to cart function
 function addToCart(e, billProducts, productsInput, total) {
-//    product.addEventListener('click', function(e) {
+    //    product.addEventListener('click', function(e) {
     document.querySelector('.bg-modal').style.display = "none";
     let index = e.srcElement.dataset.index;
     let name = e.srcElement.dataset.name;
     let value = e.srcElement.dataset.value;
-        
-    if(typeof(name) == "undefined" || typeof(value) == "undefined") return;
+
+    if (typeof(name) == "undefined" || typeof(value) == "undefined") return;
 
     var pa = name + ' - ' + value + ' VND';
     billProducts.innerHTML += pa + "<br>";
@@ -125,22 +141,21 @@ function addToCart(e, billProducts, productsInput, total) {
     } else {
         productsInput.value += ',' + index;
     }
-        
+
     return product;
 }
 
 // Search function
 function searchProduct() {
     let input = document.getElementById('myInput').value
-    input=input.toLowerCase();
+    input = input.toLowerCase();
     let x = document.getElementsByClassName("product");
-    
-    for (i = 0; i < x.length; i++) { 
+
+    for (i = 0; i < x.length; i++) {
         if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            x[i].style.display="none";
-        }
-        else {
-            x[i].style.display="list-item";
+            x[i].style.display = "none";
+        } else {
+            x[i].style.display = "list-item";
         }
     }
 }

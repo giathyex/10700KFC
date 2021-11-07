@@ -24,24 +24,24 @@ body.bill {
     padding: 10px;
 }
 
-
 .Card {
-    padding: 1px;
+    padding-bottom: 10px;
+    margin-top: -10px;
     border-radius: var(--border-radius);
-    background: linear-gradient(-67deg, rgba(200, 216, 231, 0.7), rgba(255, 255, 255, 0.8));
+    background: #5e72eb;
     overflow: hidden;
 }
-  
+
 .CardInner {
     padding: 16px 16px;
-    background-color: #e2e9f4;
+    background-color: #5e72eb;
     border-radius: var(--border-radius);
 }
-  
+
 .container {
     display: flex;
 }
-  
+
 .Icon {
     min-width: 46px;
     min-height: 46px;
@@ -49,27 +49,21 @@ body.bill {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 2px solid #000;
-    margin-right: 12px;
+    margin-left: 12px;
+    color: #5e72eb;
+    background-color: #d2d9ff;
 }
+
 .Icon svg {
     transform: translate(-1px, -1px);
+    color: #5e72eb;
 }
-  
-label {
-    font-family: "Hind", sans-serif;
-    display: block;
-    color: #3c4b66;
-    margin-bottom: 12px;
-    background: linear-gradient(45deg, #6b7b8f, #3c4b66);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-  
+
 .InputContainer {
     width: 100%;
+    background-color: #0022e2;
 }
-  
+
 input {
     background-color: #e3edf7;
     padding: 16px 32px;
@@ -77,7 +71,6 @@ input {
     display: block;
     font-family: "Orbitron", sans-serif;
     font-weight: 600;
-    color: #a9b8c9;
     -webkit-appearance: none;
     transition: all 240ms ease-out;
     width: 100%;
@@ -90,17 +83,17 @@ input::placeholder {
 input:focus {
     outline: none;
     color: #6d7f8f;
-    background-color: #eff5fa;
+    background-color: #e3edf7;
 }
-  
+
 .InputContainer {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    border: 2px solid #000
 }
 
-.InputContainer:before, .InputContainer:after {
+.InputContainer:before,
+.InputContainer:after {
     left: 0;
     top: 0;
     display: block;
@@ -127,7 +120,6 @@ section.products {
     flex-wrap: wrap;
     justify-content: start;
     height: fit-content;
-    
 }
 
 section.products>div {
@@ -198,10 +190,10 @@ section.bill form label {
 
 section.bill form input[type="text"] {
     display: block;
-    background: transparent;
-    border: 1px solid #5e72eb;
+    background: #e3edf7;
     border-radius: 10px;
     box-sizing: border-box;
+    text-align: center;
     color: #000000;
     font-size: 1rem;
     padding: 0.75rem;
@@ -343,41 +335,67 @@ section.bill-checkout button:hover {
 }
 
 .bg-modal {
-	background-color: rgba(0, 0, 0, 0.8);
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
     display: none;
-	justify-content: center;
-	align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-contents {
-	height: 300px;
-	width: 500px;
-	background-color: white;
-	text-align: center;
-	padding: 20px;
-	position: relative;
-	border-radius: 4px;
+    height: 350px;
+    width: 800px;
+    background-color: white;
+    padding: 25px;
+    position: relative;
+    border-radius: 15px;
 }
 
 .button-add-to-cart {
-    background-color: #fc2a2a;
-    border: 1px solid #000;
+    background-color: #5e72eb;
     border-radius: 10px;
     font-family: "Hind", sans-serif;
-    color: #000000;
+    color: #ffffff;
+    position: absolute;
+    bottom: 20px;
+    width: 530px;
 }
 
-.close {
-	position: absolute;
-	top: 0;
-	right: 10px;
-	font-size: 42px;
-	color: #333;
-	transform: rotate(45deg);
-	cursor: pointer;
+.close2 {
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    color: #5e72eb;
+    cursor: pointer;
+    font-size: 30px;
 }
 
+.md-price {
+    color: #5e72eb;
+    text-align: right;
+}
+
+.md-detail-pics {
+    max-width: 90%;
+    margin: auto;
+    height: 200px;
+    object-fit: contain;
+}
+
+.modal-contents .column:first-child {
+    float: left;
+    width: 30%;
+    padding-left: 20px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.modal-contents .column:last-child {
+    float: left;
+    width: 70%;
+    height: 300px;
+}
