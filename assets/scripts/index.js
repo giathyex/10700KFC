@@ -72,11 +72,11 @@ function clickwaiter() {
     let billProducts = document.querySelector('#productslist');
     let productsInput = document.querySelector('#productslist');
     
-    let total = 0;
+    let t = { total: 0 };
 
     productsInput.value = '';
 
-    products.forEach(product => {showInfo(product, billProducts, productsInput, total)});
+    products.forEach(product => {showInfo(product, billProducts, productsInput, t)});
 
     
 }
@@ -116,9 +116,9 @@ function addToCart(e, billProducts, productsInput, total) {
     var pa = name + ' - ' + value + ' VND';
     billProducts.innerHTML += pa + "<br>";
 
-    total = +total + +value;
+    total.total = +total.total + +value;
 
-    document.getElementById("totallabel").innerHTML = total;
+    document.getElementById("totallabel").innerHTML = total.total;
 
     if (productsInput.value == '') {
         productsInput.value += index;
