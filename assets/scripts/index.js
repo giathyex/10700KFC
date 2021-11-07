@@ -7,6 +7,7 @@ var config = {
     messagingSenderId: "914271438093",
     appId: "1:914271438093:web:c23592d5e8394a865c5c44"
 };
+
 firebase.initializeApp(config);
 const db = firebase.firestore();
 db.settings({
@@ -27,6 +28,7 @@ function renderList(doc, indexc) {
     var imgc = document.createElement("img");
     imgc.src = "assets/images/hamburguer.svg";
     imgc.alt = doc.data().name;
+
 
     var divc = $('<div/>', {
         'class': "product",
@@ -69,33 +71,62 @@ function clickwaiter() {
     let products = document.querySelectorAll('#foodlist');
     let billProducts = document.querySelector('#productslist');
     let productsInput = document.querySelector('#productslist');
-
-    var total = 0;
+    
+    let total = 0;
 
     productsInput.value = '';
 
-    products.forEach(product => {
-        product.addEventListener('click', function(e) {
-            let index = e.srcElement.dataset.index;
-            let name = e.srcElement.dataset.name;
-            let value = e.srcElement.dataset.value;
-            
-            if(typeof(name) == "undefined" || typeof(value) == "undefined") return;
+    products.forEach(product => {showInfo(product, billProducts, productsInput, total)});
 
-            var pa = name + ' - ' + value + ' VND';
-            billProducts.innerHTML += pa + "<br>";
+    
+}
 
 
-            total = +total + +value;
-            document.getElementById("totallabel").innerHTML = total;
-
-            if (productsInput.value == '') {
-                productsInput.value += index;
-            } else {
-                productsInput.value += ',' + index;
-            }
-        });
+// Show pop-up function
+function showInfo (product, billProducts, productsInput, total) {
+    let temp;
+    product.addEventListener('click', function(e) {
+        temp = e;
+        document.querySelector('.bg-modal').style.display = "flex"
+        $('.md-food-name').text(e.srcElement.dataset.name);
+        $('.md-price').text(e.srcElement.dataset.value);
     });
+    document.querySelector('.button-add-to-cart').addEventListener("click", function(){
+        addToCart(temp, billProducts, productsInput, total);
+    });
+    return product;
+}
+
+// Add close button
+document.querySelector('.close').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "none";
+});
+
+
+// Add to cart function
+function addToCart(e, billProducts, productsInput, total) {
+//    product.addEventListener('click', function(e) {
+    document.querySelector('.bg-modal').style.display = "none";
+    let index = e.srcElement.dataset.index;
+    let name = e.srcElement.dataset.name;
+    let value = e.srcElement.dataset.value;
+        
+    if(typeof(name) == "undefined" || typeof(value) == "undefined") return;
+
+    var pa = name + ' - ' + value + ' VND';
+    billProducts.innerHTML += pa + "<br>";
+
+    total = +total + +value;
+
+    document.getElementById("totallabel").innerHTML = total;
+
+    if (productsInput.value == '') {
+        productsInput.value += index;
+    } else {
+        productsInput.value += ',' + index;
+    }
+        
+    return product;
 }
 
 // Search function
