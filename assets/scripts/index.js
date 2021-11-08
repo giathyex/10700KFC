@@ -15,11 +15,18 @@ db.settings({
 });
 
 
+// Number comma formatting
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+
 // Render food list from database
 function renderList(doc, indexc) {
+    var pricecomma = numberWithCommas(doc.data().price);
     var pricec = document.createElement("p");
     pricec.className = "product-value";
-    pricec.innerHTML = "<h4>" + doc.data().price + "</h4>";
+    pricec.innerHTML = "<h4>" + pricecomma + "</h4>";
 
     var namec = document.createElement("p");
     namec.className = "product-name"
@@ -28,7 +35,6 @@ function renderList(doc, indexc) {
     var imgc = document.createElement("img");
     imgc.src = doc.data().pic;
     imgc.alt = doc.data().name;
-
 
     var divc = $('<div/>', {
         'class': "product",
@@ -68,22 +74,22 @@ async function getdb() {
 }
 
 
+// total global variable is actual total price in int
+var total = 0;
+// total comma is formatted total price for dispaly only
+
+
 // Function for choosing food on menu, called after menu loaded sucessfully
+
 function clickwaiter() {
     let products = document.querySelectorAll('#foodlist');
-    let billProducts = document.querySelector('#productslist');
-    let productsInput = document.querySelector('#productslist');
 
-    let t = { total: 0 };
-
-    productsInput.value = '';
-
-    products.forEach(product => { showInfo(product, billProducts, productsInput, t) });
+    products.forEach(product => { showInfo(product) });
 }
 
 
 // Show pop-up function
-function showInfo(product, billProducts, productsInput, total) {
+function showInfo(product) {
     let temp;
     product.addEventListener('click', function(e) {
         temp = e;
@@ -94,7 +100,8 @@ function showInfo(product, billProducts, productsInput, total) {
         document.querySelector('.bg-modal').style.display = "flex";
         $('.md-detail-pics').attr("src", e.srcElement.dataset.pic);
         $('.md-food-name').text(e.srcElement.dataset.name);
-        $('.md-price').text(e.srcElement.dataset.value + " VND");
+        var pricecomma = numberWithCommas(e.srcElement.dataset.value);
+        $('.md-price').text(pricecomma + " VND");
         $('.md-detail').text(e.srcElement.dataset.detail);
 
         // Stop the UI from scrolling down
@@ -102,10 +109,13 @@ function showInfo(product, billProducts, productsInput, total) {
         document.body.style.overflow = 'hidden';
     });
     document.querySelector('.button-add-to-cart').addEventListener("click", function() {
-        addToCart(temp, billProducts, productsInput, total);
+        // Scrolling again
+        document.body.style.overflow = '';
+        addToCart(temp);
     });
     return product;
 }
+
 
 // Add close button
 document.querySelector('.close2').addEventListener("click", function() {
@@ -118,32 +128,38 @@ document.querySelector('.close2').addEventListener("click", function() {
     $('.md-detail').text("");
 });
 
+var billindex = 0; // Index of div in bill
 
 // Add to cart function
-function addToCart(e, billProducts, productsInput, total) {
-    //    product.addEventListener('click', function(e) {
+function addToCart(e) {
+    // product.addEventListener('click', function(e) {
     document.querySelector('.bg-modal').style.display = "none";
-    let index = e.srcElement.dataset.index;
     let name = e.srcElement.dataset.name;
     let value = e.srcElement.dataset.value;
 
     if (typeof(name) == "undefined" || typeof(value) == "undefined") return;
 
-    var pa = name + ' - ' + value + ' VND';
-    billProducts.innerHTML += pa + "<br>";
+    billindex += 1;
 
-    total.total = +total.total + +value;
+    var divbill = $('<div/>', {
+        'class': "productlist2",
+        'id': "productlist2i",
+        'data-index': billindex,
+        'data-name': name,
+        'data-value': value
+    });
 
-    document.getElementById("totallabel").innerHTML = total.total;
+    var pricecomma = numberWithCommas(value);
+    $(divbill).append(name + ' - ' + pricecomma + ' VND');
+    $("#selectedproduct").append(divbill);
 
-    if (productsInput.value == '') {
-        productsInput.value += index;
-    } else {
-        productsInput.value += ',' + index;
-    }
+    total = +total + +value;
+    var totalcomma = numberWithCommas(total);
+    document.getElementById("totallabel").innerHTML = totalcomma;
 
-    return product;
+    clickwaiterremove();
 }
+
 
 // Search function
 function searchProduct() {
@@ -160,26 +176,79 @@ function searchProduct() {
     }
 }
 
-// Enable checkout button after table number is entered
+
+// Enable checkout button after valid table number is entered
+// Table number must be 0 < num <= 100
 document.getElementById("tablen").addEventListener("keyup", function() {
     var nameInput = document.getElementById('tablen').value;
-    if (nameInput != "") {
+    if ((nameInput != "") && (nameInput <= 100) && (nameInput > 0)) {
         document.getElementById('checkout').removeAttribute("disabled");
+        document.getElementById("checkout").style.background = "#5e72eb";
+        document.getElementById("checkout").style.border = "1px solid #5e72eb";
+        document.getElementById('checkout').innerHTML = "Xác nhận thanh toán";
+
+    } else if ((nameInput != "") && ((nameInput > 100) || (nameInput <= 0))) {
+        document.getElementById('checkout').setAttribute("disabled", null);
+        document.getElementById('checkout').innerHTML = "Mã số không hợp lệ";
+        document.getElementById("checkout").style.background = "#b9c2f3";
+        document.getElementById("checkout").style.border = "1px solid #b9c2f3";
+
     } else {
         document.getElementById('checkout').setAttribute("disabled", null);
+        document.getElementById('checkout').innerHTML = "Mã số không hợp lệ";
+        document.getElementById("checkout").style.background = "#b9c2f3";
+        document.getElementById("checkout").style.border = "1px solid #b9c2f3";
+
+    }
+});
+
+// Enable enter table box after some stuff is added to cart
+document.getElementById("selectedproduct").addEventListener("DOMSubtreeModified", function() {
+    if (document.getElementById("selectedproduct").innerHTML.length > 50) {
+        document.getElementById('tablen').removeAttribute("disabled");
+        document.getElementById('tablen').placeholder = "Vui lòng nhập mã số bàn";
+        document.getElementById('checkout-or-reset').style.display = "block";
+    } else {
+        document.getElementById('checkout-or-reset').style.display = "none";
+        document.getElementById('tablen').setAttribute("disabled", null);
+        document.getElementById('tablen').placeholder = "Vui lòng chọn món trước";
     }
 });
 
 
 // Passing variable and open bill.html
 function checkoutfunc() {
-    var orders = document.querySelector('#productslist').innerHTML;
+    var orders = document.querySelector('#selectedproduct').innerHTML;
     var tabno = document.getElementById('tablen').value;
-    var totalpr = document.getElementById('totallabel').innerHTML;
 
     localStorage.setItem("orders", orders);
     localStorage.setItem("tabno", tabno);
-    localStorage.setItem("totalpr", totalpr);
+    localStorage.setItem("totalpr", total);
 
     window.location = 'bill.html';
+}
+
+
+// Cancel function
+function cancelfunc() {
+    window.location.reload();
+}
+
+
+// Remove from cart function
+function clickwaiterremove() {
+    let products2 = document.querySelectorAll('#productlist2i');
+    products2.forEach(product2 => { removef(product2) });
+}
+
+function removef(product2) {
+    product2.addEventListener('click', handler2);
+}
+
+function handler2(event) {
+    total = +total - +event.srcElement.dataset.value;
+    var totalcomma = numberWithCommas(total);
+    document.getElementById("totallabel").innerHTML = totalcomma;
+
+    $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
 }

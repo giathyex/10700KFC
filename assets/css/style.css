@@ -51,7 +51,7 @@ body.bill {
     border-radius: 10px;
     margin-left: 12px;
     color: #5e72eb;
-    background-color: #d2d9ff;
+    background-color: #e3edf7;
 }
 
 .Icon svg {
@@ -77,12 +77,12 @@ input {
 }
 
 input::placeholder {
-    color: #6d7f8f;
+    color: #333b44;
 }
 
 input:focus {
     outline: none;
-    color: #6d7f8f;
+    color: #333b44;
     background-color: #e3edf7;
 }
 
@@ -194,7 +194,7 @@ section.bill form input[type="text"] {
     border-radius: 10px;
     box-sizing: border-box;
     text-align: center;
-    color: #000000;
+    color: #333b44;
     font-size: 1rem;
     padding: 0.75rem;
     width: 100%;
@@ -301,8 +301,26 @@ section.bill-actions button {
 
 section.bill-checkout button {
     display: block;
-    background: #5e72eb;
-    border: 1px solid #5e72eb;
+    background: #b9c2f3;
+    border: 1px solid #b9c2f3;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 0.75rem;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+}
+
+section.bill-cancel {
+    border-top: 1px solid #5e72eb;
+}
+
+section.bill-cancel button {
+    display: block;
+    background: #eb5e5e;
+    border: 1px solid #eb5e5e;
     border-radius: 10px;
     box-sizing: border-box;
     color: #ffffff;
@@ -320,8 +338,10 @@ section.bill-actions button:hover {
 }
 
 section.bill-checkout button:hover {
-    background: #5e72eb;
-    border: 1px solid #5e72eb;
+    color: #000000;
+}
+
+section.bill-cancel button:hover {
     color: #000000;
 }
 
@@ -349,7 +369,7 @@ section.bill-checkout button:hover {
     height: 350px;
     width: 800px;
     background-color: white;
-    padding: 25px;
+    padding: 25px 30px 25px 25px;
     position: relative;
     border-radius: 15px;
 }
@@ -360,8 +380,8 @@ section.bill-checkout button:hover {
     font-family: "Hind", sans-serif;
     color: #ffffff;
     position: absolute;
-    bottom: 20px;
-    width: 530px;
+    bottom: 25px;
+    width: 525px;
 }
 
 .close2 {
@@ -398,4 +418,25 @@ section.bill-checkout button:hover {
     float: left;
     width: 70%;
     height: 300px;
+}
+
+section.productslist>div {
+    cursor: pointer;
+    display: block;
+    background: #e3edf7;
+    border: 1px solid #e3edf7;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #333b44;
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 0.75rem;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+}
+
+section.productslist>div:after {
+    content: '\01F5D1';
+    float: right;
+    margin-left: 5px;
 }

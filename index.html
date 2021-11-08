@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/ui.css" rel="stylesheet" type="text/css" />
-    <link href="assets/fonts/fontawesome/css/fontawesome-all.min.css" type="text/css" rel="stylesheet">
     <!-- Logo -->
     <link rel="shortcut icon" href="assets/images/ico.ico" type="image/x-icon">
     <!-- JQuery and Firebase js -->
@@ -61,7 +60,8 @@
                     <h3>Món đã chọn</h3>
                 </center>
                 <br>
-                <p id="productslist"></p>
+                <section class="productslist" id="selectedproduct">
+                </section>
             </div>
 
             <!-- Total price -->
@@ -69,24 +69,32 @@
                 Tổng cộng (VND):
                 <br>
                 <h2>
-                    <p style="text-align:right;" id="totallabel"></p>
+                    <p style="text-align:right;" id="totallabel">0</p>
                 </h2>
                 <br>
             </div>
 
-            <!-- Table input box -->
-            <div class="bill-detail">
-                <form>
-                    <div>
-                        <input type="text" name="tablen" id="tablen" placeholder="Vui lòng nhập mã số bàn">
-                    </div>
-                </form>
-            </div>
+            <div id="checkout-or-reset" style="display:none !important">
+                <!-- Table input box -->
+                <div class="bill-detail">
+                    <form>
+                        <div>
+                            <input type="text" name="tablen" id="tablen" placeholder="Vui lòng chọn món trước" disabled>
+                        </div>
+                    </form>
+                </div>
 
-            <!-- Check out button -->
-            <section class="bill-checkout">
-                <button id="checkout" onclick="checkoutfunc()" disabled>Xác nhận thanh toán</button>
-            </section>
+                <!-- Check out button -->
+                <section class="bill-checkout">
+                    <button id="checkout" onclick="checkoutfunc()" disabled>Xác nhận thanh toán</button>
+                </section>
+                <br>
+                <!-- Cancel button -->
+                <section class="bill-cancel">
+                    <br>
+                    <button id="cancel" onclick="cancelfunc()">Chọn lại</button>
+                </section>
+            </div>
         </section>
     </section>
 
@@ -102,7 +110,7 @@
                     <h3 class="md-price"></h3>
                     <hr>
                     <p class="md-detail"></p>
-                    <input type="button" class="button-add-to-cart" value="Thêm vào giỏ hàng"></input>
+                    <input type="button" class="button-add-to-cart" value="Thêm vào giỏ hàng" id="add-to-cart"></input>
                 </div>
             </form>
         </div>

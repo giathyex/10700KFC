@@ -1,9 +1,15 @@
+// Number comma formatting
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 function loadbill() {
     var tablen = localStorage.getItem("tabno");
     $("#tablenum").append(tablen);
 
-    var totalpri = localStorage.getItem("totalpr");
-    $("#total").append("<h4>" + totalpri + "</h4>");
+    var totalpri = localStorage.getItem("totalpr"); // Actual total price in int
+    var totalcomma = numberWithCommas(totalpri); // Comma total price
+    $("#total").append("<h4>" + totalcomma + "</h4>");
 
     var detaill = localStorage.getItem("orders");
     $("#detaillist").append(detaill);
