@@ -1,6 +1,6 @@
 # 10700KFC
 
-For demo run, visit [this link](https://giathyex.github.io/10700KFC/).
+For a demo run, visit [this link](https://giathyex.github.io/10700KFC/).
 
 <p align="center">
   <br>
