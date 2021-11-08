@@ -1,5 +1,7 @@
 # 10700KFC
 
+For demo run, visit [this link](https://giathyex.github.io/10700KFC/).
+
 <p align="center">
   <br>
   <img src="preview_pictures/1.PNG">
