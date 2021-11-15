@@ -52,8 +52,7 @@ function renderList(doc, indexc) {
     $(divc).append("<br>");
     $(divc).append(pricec);
 
-    foodList.addItem(namec.innerHTML);
-
+    foodList.addItem(namec.innerHTML, parseInt(doc.data().price));
     $("#foodlist").append(divc);
 }
 
@@ -168,7 +167,8 @@ function addToCart(e) {
     $("#selectedproduct").append(divbill);
 
     total = +total + +value;
-    var totalcomma = numberWithCommas(total);
+    var total1 = foodList.getTotal();
+    var totalcomma = numberWithCommas(total1);
     document.getElementById("totallabel").innerHTML = totalcomma;
 
     clickwaiterremove();
@@ -181,7 +181,7 @@ function searchProduct() {
     input = input.toLowerCase();
     let x = document.getElementsByClassName("product");
 
-    for (i = 0; i < x.length; i++) {
+    for (var i = 0; i < x.length; i++) {
         if (!x[i].innerHTML.toLowerCase().includes(input)) {
             x[i].style.display = "none";
         } else {
@@ -190,6 +190,8 @@ function searchProduct() {
     }
 }
 
+const search = document.getElementById("myInput");
+search.addEventListener('keyup', searchProduct);
 
 // Enable checkout button after valid table number is entered
 // Table number must be 0 < num <= 100
@@ -242,11 +244,17 @@ function checkoutfunc() {
     window.location = 'bill.html';
 }
 
+const checkout = document.getElementById("checkout");
+checkout.addEventListener('click', checkoutfunc);
+
 
 // Cancel function
 function cancelfunc() {
     window.location.reload();
 }
+
+const cancel = document.getElementById("cancel");
+cancel.addEventListener('click', cancelfunc);
 
 
 // Remove from cart function
