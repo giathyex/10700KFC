@@ -1,3 +1,4 @@
+import { ProductList } from "./class.js";
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyD6RUkvbEbaU1GxDH0YbwYX5B5P2CcRIBg",
@@ -14,6 +15,7 @@ db.settings({
     timestampsInSnapshots: true
 });
 
+const foodList = new ProductList();
 
 // Number comma formatting
 function numberWithCommas(x) {
@@ -49,6 +51,8 @@ function renderList(doc, indexc) {
     $(divc).append(namec);
     $(divc).append("<br>");
     $(divc).append(pricec);
+
+    foodList.addItem(namec.innerHTML);
 
     $("#foodlist").append(divc);
 }
@@ -150,7 +154,17 @@ function addToCart(e) {
     });
 
     var pricecomma = numberWithCommas(value);
-    $(divbill).append(name + ' - ' + pricecomma + ' VND');
+    if (foodList.numberOfItem(name) == 0){
+        $(divbill).append(name + ' - ' + pricecomma + ' VND');
+        foodList.addToCart(name);
+    }
+    else
+    {
+        foodList.addToCart(name);
+        $(divbill).append(name + ' - ' + pricecomma + ' VND x' + foodList.numberOfItem(name));
+    }
+        
+
     $("#selectedproduct").append(divbill);
 
     total = +total + +value;
