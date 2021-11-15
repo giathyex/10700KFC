@@ -33,7 +33,7 @@
             <div class="CardInner">
                 <div class="container">
                     <div class="InputContainer">
-                        <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="Tìm món ăn yêu thích của bạn" />
+                        <input type="text" id="myInput" placeholder="Tìm món ăn yêu thích của bạn" />
                     </div>
                     <div class="Icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -105,17 +105,21 @@
             <form action="">
                 <div class="column">
                     <img class="md-detail-pics"></img>
+                    <input type="button" class="button-remove-from-cart" value="Bỏ khỏi giỏ hàng" id="remove-from-cart"></input>
                 </div>
                 <div class="column">
                     <h2 class="md-food-name"></h2>
                     <h3 class="md-price"></h3>
                     <hr>
                     <p class="md-detail"></p>
-                    <input type="button" class="button-add-to-cart" value="Thêm vào giỏ hàng" id="add-to-cart"></input>
+                    <input type="text" class="input-food-number" id="food_number" placeholder="Nhập số lượng món ăn">
+                    <input type="button" class="button-add-to-cart" value="Cập nhật vào giỏ hàng" id="add-to-cart"></input>
                 </div>
             </form>
         </div>
     </div>
+
+    
 </body>
 
 <script type="module" src="assets/scripts/index.js"></script>
