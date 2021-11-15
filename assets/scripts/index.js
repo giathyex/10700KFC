@@ -16,6 +16,8 @@ db.settings({
 });
 
 const foodList = new ProductList();
+const remove = document.querySelector('.button-remove-from-cart');
+
 
 // Number comma formatting
 function numberWithCommas(x) {
@@ -77,9 +79,7 @@ async function getdb() {
 }
 
 
-// total global variable is actual total price in int
-var total = 0;
-// total comma is formatted total price for dispaly only
+
 
 
 // Function for choosing food on menu, called after menu loaded sucessfully
@@ -93,9 +93,8 @@ function clickwaiter() {
 
 // Show pop-up function
 function showInfo(product) {
-    let temp;
+    const foodNum = document.getElementById("food_number");
     product.addEventListener('click', function(e) {
-        temp = e;
 
         // Click outside the box
         if (typeof(e.srcElement.dataset.name) == "undefined" || typeof(e.srcElement.dataset.value) == "undefined") return;
@@ -110,12 +109,33 @@ function showInfo(product) {
         // Stop the UI from scrolling down
         $(window).scrollTop(0);
         document.body.style.overflow = 'hidden';
+
+        if (foodList.numberOfItem(e.srcElement.dataset.name) == 0)
+        {
+            foodNum.value = 1;
+        }
+        else {
+            foodNum.value = foodList.numberOfItem(e.srcElement.dataset.name);
+        }
+
+        document.querySelector('.button-add-to-cart').addEventListener("click", function() {
+            // Scrolling again
+            var number = foodNum.value;
+            document.body.style.overflow = '';
+            addToCart(e, parseInt(number));
+        });
+        
+        if (foodList.numberOfItem(e.srcElement.dataset.name) > 0)
+        {
+            remove.style.display = 'flex'
+            remove.addEventListener('click', function() {
+                handler2(e);
+            })
+        }
+        else
+            remove.style.display = 'none'
     });
-    document.querySelector('.button-add-to-cart').addEventListener("click", function() {
-        // Scrolling again
-        document.body.style.overflow = '';
-        addToCart(temp);
-    });
+
     return product;
 }
 
@@ -134,14 +154,17 @@ document.querySelector('.close2').addEventListener("click", function() {
 var billindex = 0; // Index of div in bill
 
 // Add to cart function
-function addToCart(e) {
+function addToCart(e, number) {
     // product.addEventListener('click', function(e) {
     document.querySelector('.bg-modal').style.display = "none";
     let name = e.srcElement.dataset.name;
     let value = e.srcElement.dataset.value;
+    let pic = e.srcElement.dataset.pic;
+    let detail = e.srcElement.dataset.detail;
 
     if (typeof(name) == "undefined" || typeof(value) == "undefined") return;
 
+    if (number == 0 || isNaN(number)) return;
     billindex += 1;
 
     var divbill = $('<div/>', {
@@ -149,28 +172,33 @@ function addToCart(e) {
         'id': "productlist2i",
         'data-index': billindex,
         'data-name': name,
-        'data-value': value
+        'data-value': value,
+        'data-pic': pic,
+        'data-detail': detail
     });
 
     var pricecomma = numberWithCommas(value);
-    if (foodList.numberOfItem(name) == 0){
+
+    if (foodList.numberOfItem(name) == 0 && number == 1){
+
         $(divbill).append(name + ' - ' + pricecomma + ' VND');
-        foodList.addToCart(name);
+        foodList.changeNumOfItem(name, number);
+        foodList.setBillNumber(name, billindex);
+
     }
     else
     {
-        foodList.addToCart(name);
+        $('.productlist2[data-index=' + foodList.getBillIndex(name) + ']').remove();
+        foodList.changeNumOfItem(name, number);
         $(divbill).append(name + ' - ' + pricecomma + ' VND x' + foodList.numberOfItem(name));
+        foodList.setBillNumber(name, billindex);
     }
-        
 
-    $("#selectedproduct").append(divbill);
 
-    total = +total + +value;
-    var total1 = foodList.getTotal();
-    var totalcomma = numberWithCommas(total1);
+    var totalcomma = numberWithCommas(foodList.getTotal());
     document.getElementById("totallabel").innerHTML = totalcomma;
 
+    $("#selectedproduct").append(divbill);
     clickwaiterremove();
 }
 
@@ -239,7 +267,7 @@ function checkoutfunc() {
 
     localStorage.setItem("orders", orders);
     localStorage.setItem("tabno", tabno);
-    localStorage.setItem("totalpr", total);
+    localStorage.setItem("totalpr", foodList.getTotal());
 
     window.location = 'bill.html';
 }
@@ -260,17 +288,19 @@ cancel.addEventListener('click', cancelfunc);
 // Remove from cart function
 function clickwaiterremove() {
     let products2 = document.querySelectorAll('#productlist2i');
-    products2.forEach(product2 => { removef(product2) });
-}
-
-function removef(product2) {
-    product2.addEventListener('click', handler2);
+    products2.forEach(product2 => { showInfo(product2) });
 }
 
 function handler2(event) {
-    total = +total - +event.srcElement.dataset.value;
-    var totalcomma = numberWithCommas(total);
+    document.querySelector('.bg-modal').style.display = "none";
+    let name = event.srcElement.dataset.name;
+    foodList.removeItem(name);
+    var totalcomma = numberWithCommas(foodList.getTotal());
     document.getElementById("totallabel").innerHTML = totalcomma;
 
     $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
+
+    if (foodList.getTotal() == 0) {
+        window.location.reload();
+    }
 }
