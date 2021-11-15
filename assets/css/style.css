@@ -384,6 +384,17 @@ section.bill-cancel button:hover {
     width: 525px;
 }
 
+.button-remove-from-cart {
+    background-color: #eb5e5e;
+    border-radius: 10px;
+    font-family: "Hind", sans-serif;
+    color: #ffffff;
+    position: absolute;
+    bottom: 25px;
+    width: 525px;
+    display: none;
+}
+
 .close2 {
     position: absolute;
     top: 5px;
