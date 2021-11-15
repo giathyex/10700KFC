@@ -4,7 +4,7 @@ For a demo run, visit [this link](https://giathyex.github.io/10700KFC/).
 
 When you decide to run locally via browser, please install live-server for the same result as demo:
 ```
-npm install live-server
+npm install -g live-server
 ```
 
 Then at the directory holding the index.html file, type in cmd/terminal:
