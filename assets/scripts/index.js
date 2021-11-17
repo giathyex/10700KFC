@@ -25,6 +25,31 @@ function numberWithCommas(x) {
 }
 
 
+// Open cart mobile version
+var link = document.getElementById('cartmobile');
+link.addEventListener('click', cart_open);
+
+function cart_open() {
+    if (document.getElementById("mySidebar").style.width != "100%") {
+        document.getElementById("mySidebar").style.width = "100%";
+        $(window).scrollTop(0);
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.getElementById("mySidebar").style.width = "0%";
+        document.body.style.overflow = '';
+    }
+}
+
+// Qty slider
+var slider = document.getElementById("food_number");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+    output.innerHTML = this.value;
+}
+
+
 // Render food list from database
 function renderList(doc, indexc) {
     var pricecomma = numberWithCommas(doc.data().price);
@@ -79,9 +104,6 @@ async function getdb() {
 }
 
 
-
-
-
 // Function for choosing food on menu, called after menu loaded sucessfully
 
 function clickwaiter() {
@@ -89,7 +111,6 @@ function clickwaiter() {
 
     products.forEach(product => { showInfo(product) });
 }
-
 
 // Show pop-up function
 function showInfo(product) {
@@ -106,33 +127,23 @@ function showInfo(product) {
         $('.md-price').text(pricecomma + " VND");
         $('.md-detail').text(e.srcElement.dataset.detail);
 
-        // Stop the UI from scrolling down
-        $(window).scrollTop(0);
-        document.body.style.overflow = 'hidden';
-
-        if (foodList.numberOfItem(e.srcElement.dataset.name) == 0)
-        {
+        if (foodList.numberOfItem(e.srcElement.dataset.name) == 0) {
             foodNum.value = 1;
-        }
-        else {
+        } else {
             foodNum.value = foodList.numberOfItem(e.srcElement.dataset.name);
         }
 
         document.querySelector('.button-add-to-cart').addEventListener("click", function() {
-            // Scrolling again
             var number = foodNum.value;
-            document.body.style.overflow = '';
             addToCart(e, parseInt(number));
         });
-        
-        if (foodList.numberOfItem(e.srcElement.dataset.name) > 0)
-        {
-            remove.style.display = 'flex'
+
+        if (foodList.numberOfItem(e.srcElement.dataset.name) > 0) {
+            remove.style.display = 'block'
             remove.addEventListener('click', function() {
                 handler2(e);
             })
-        }
-        else
+        } else
             remove.style.display = 'none'
     });
 
@@ -142,8 +153,6 @@ function showInfo(product) {
 
 // Add close button
 document.querySelector('.close2').addEventListener("click", function() {
-    // Scrolling again
-    document.body.style.overflow = '';
     document.querySelector('.bg-modal').style.display = "none";
     $('.md-detail-pics').attr("src", "");
     $('.md-food-name').text("");
@@ -155,7 +164,7 @@ var billindex = 0; // Index of div in bill
 
 // Add to cart function
 function addToCart(e, number) {
-    // product.addEventListener('click', function(e) {
+
     document.querySelector('.bg-modal').style.display = "none";
     let name = e.srcElement.dataset.name;
     let value = e.srcElement.dataset.value;
@@ -179,15 +188,13 @@ function addToCart(e, number) {
 
     var pricecomma = numberWithCommas(value);
 
-    if (foodList.numberOfItem(name) == 0 && number == 1){
+    if (foodList.numberOfItem(name) == 0 && number == 1) {
 
         $(divbill).append(name + ' - ' + pricecomma + ' VND');
         foodList.changeNumOfItem(name, number);
         foodList.setBillNumber(name, billindex);
 
-    }
-    else
-    {
+    } else {
         $('.productlist2[data-index=' + foodList.getBillIndex(name) + ']').remove();
         foodList.changeNumOfItem(name, number);
         $(divbill).append(name + ' - ' + pricecomma + ' VND x' + foodList.numberOfItem(name));
@@ -288,7 +295,7 @@ cancel.addEventListener('click', cancelfunc);
 // Remove from cart function
 function clickwaiterremove() {
     let products2 = document.querySelectorAll('#productlist2i');
-    products2.forEach(product2 => { showInfo(product2) });
+    products2.forEach(product2 => { showInfo(product2); });
 }
 
 function handler2(event) {

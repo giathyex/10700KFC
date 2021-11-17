@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/ui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Logo -->
     <link rel="shortcut icon" href="assets/images/ico.ico" type="image/x-icon">
     <!-- JQuery and Firebase js -->
@@ -35,11 +36,8 @@
                     <div class="InputContainer">
                         <input type="text" id="myInput" placeholder="Tìm món ăn yêu thích của bạn" />
                     </div>
-                    <div class="Icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
-                            <circle cx="11" cy="11" r="8" />
-                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
+                    <div class="Icon" id="cartmobile">
+                        <i class="fa fa-shopping-cart"></i>
                     </div>
                 </div>
             </div>
@@ -52,50 +50,52 @@
         <section class="products" id="foodlist"></section>
 
         <!-- Right panel -->
-        <section class="bill">
+        <div class="w3-sidebar w3-bar-block" id="mySidebar">
+            <section class="bill" id="mySidebar">
 
-            <!-- Choosen food list -->
-            <div class="bill-products">
-                <center>
-                    <h3>Món đã chọn</h3>
-                </center>
-                <br>
-                <section class="productslist" id="selectedproduct">
-                </section>
-            </div>
-
-            <!-- Total price -->
-            <div class="bill-total" style="text-align:right;">
-                Tổng cộng (VND):
-                <br>
-                <h2>
-                    <p style="text-align:right;" id="totallabel">0</p>
-                </h2>
-                <br>
-            </div>
-
-            <div id="checkout-or-reset" style="display:none !important">
-                <!-- Table input box -->
-                <div class="bill-detail">
-                    <form>
-                        <div>
-                            <input type="text" name="tablen" id="tablen" placeholder="Vui lòng chọn món trước" disabled>
-                        </div>
-                    </form>
+                <!-- Choosen food list -->
+                <div class="bill-products">
+                    <center>
+                        <h3>Món đã chọn</h3>
+                    </center>
+                    <br>
+                    <section class="productslist" id="selectedproduct">
+                    </section>
                 </div>
 
-                <!-- Check out button -->
-                <section class="bill-checkout">
-                    <button id="checkout" onclick="checkoutfunc()" disabled>Xác nhận thanh toán</button>
-                </section>
-                <br>
-                <!-- Cancel button -->
-                <section class="bill-cancel">
+                <!-- Total price -->
+                <div class="bill-total" style="text-align:right;">
+                    Tổng cộng (VND):
                     <br>
-                    <button id="cancel" onclick="cancelfunc()">Chọn lại</button>
-                </section>
-            </div>
-        </section>
+                    <h2>
+                        <p style="text-align:right;" id="totallabel">0</p>
+                    </h2>
+                    <br>
+                </div>
+
+                <div id="checkout-or-reset" style="display:none !important">
+                    <!-- Table input box -->
+                    <div class="bill-detail">
+                        <form>
+                            <div>
+                                <input type="text" name="tablen" id="tablen" placeholder="Vui lòng chọn món trước" disabled>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Check out button -->
+                    <section class="bill-checkout">
+                        <button id="checkout" onclick="checkoutfunc()" disabled>Xác nhận thanh toán</button>
+                    </section>
+                    <br>
+                    <!-- Cancel button -->
+                    <section class="bill-cancel">
+                        <br>
+                        <button id="cancel" onclick="cancelfunc()">Chọn lại</button>
+                    </section>
+                </div>
+            </section>
+        </div>
     </section>
 
     <!-- Pop-up model -->
@@ -105,22 +105,24 @@
             <form action="">
                 <div class="column">
                     <img class="md-detail-pics"></img>
-                    <input type="button" class="button-remove-from-cart" value="Bỏ khỏi giỏ hàng" id="remove-from-cart"></input>
                 </div>
                 <div class="column">
                     <h2 class="md-food-name"></h2>
                     <h3 class="md-price"></h3>
                     <hr>
                     <p class="md-detail"></p>
-                    <input type="text" class="input-food-number" id="food_number" placeholder="Nhập số lượng món ăn">
+                    <h5 class="md-qty">Số lượng: <span id="demo"></span></h5>
+                    <input type="range" min="1" max="20" value="1" class="slider2" id="food_number">
                     <input type="button" class="button-add-to-cart" value="Cập nhật vào giỏ hàng" id="add-to-cart"></input>
+                    <input type="button" class="button-remove-from-cart" value="Bỏ khỏi giỏ hàng" id="remove-from-cart"></input>
                 </div>
             </form>
         </div>
     </div>
 
-    
+
 </body>
 
 <script type="module" src="assets/scripts/index.js"></script>
+
 </html>

@@ -1846,6 +1846,7 @@ article:after,
     margin-right: 7px;
     max-height: 42px;
     display: inline-block;
+    max-width: 80%;
 }
 
 .brand-wrap .logo-text,
