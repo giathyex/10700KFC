@@ -390,14 +390,3 @@ function handler2(event) {
 
     $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
 }
-
-window.addEventListener('resize', () => {
-    // PC switch to mobile
-    if (($('#popupmenu').css('position') === 'absolute') && (document.getElementById("popupmenu").style.height == "100%")) {
-        document.getElementById("popupmenu").style.height = "200%";
-    }
-    // Mobile switch to PC
-    else if (document.getElementById("popupmenu").style.height == "200%") {
-        document.getElementById("popupmenu").style.height = "100%";
-    }
-});
