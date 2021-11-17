@@ -116,6 +116,7 @@ function clickwaiter() {
 // Show pop-up function
 function showInfo(product) {
     const foodNum = document.getElementById("food_number");
+    const button_add_to_cart = document.querySelector('.button-add-to-cart');
     product.addEventListener('click', function(e) {
 
         // Click outside the box
@@ -130,11 +131,13 @@ function showInfo(product) {
 
         if (foodList.numberOfItem(e.srcElement.dataset.name) == 0) {
             foodNum.value = 1;
+            button_add_to_cart.value = "Thêm vào giỏ hàng";
         } else {
             foodNum.value = foodList.numberOfItem(e.srcElement.dataset.name);
+            button_add_to_cart.value = "Cập nhật lại giỏ hàng";
         }
-
-        document.querySelector('.button-add-to-cart').addEventListener("click", function() {
+        
+        button_add_to_cart.addEventListener("click", function() {
             var number = foodNum.value;
             addToCart(e, parseInt(number));
         });
