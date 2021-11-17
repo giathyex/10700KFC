@@ -185,6 +185,8 @@ async function showInfo(product) {
 
 // Add close button
 document.querySelector('.close2').addEventListener("click", async function() {
+    document.getElementById("food_number").value = 1;
+    document.getElementById("md_qty").innerHTML = "1";
 
     document.getElementById("popupmenu").style.height = "0%";
 
@@ -238,6 +240,10 @@ function addToCart(e, number) {
     document.getElementById("totallabel").innerHTML = totalcomma;
 
     $("#selectedproduct").append(divbill);
+
+    document.getElementById("food_number").value = 1;
+    document.getElementById("md_qty").innerHTML = "1";
+
     clickwaiterremove();
 }
 
