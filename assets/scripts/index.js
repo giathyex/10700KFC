@@ -125,6 +125,8 @@ async function showInfo(product) {
         // Click outside the box
         if (typeof(e.srcElement.dataset.name) == "undefined" || typeof(e.srcElement.dataset.value) == "undefined") return;
 
+        $(window).scrollTop(0);
+
         // Hide sidebar in mobile mode
         // Mobile and sidebar is open
         if (($('#mySidebar').css('height') != '0px') && ($('#popupmenu').css('position') === 'absolute')) {
