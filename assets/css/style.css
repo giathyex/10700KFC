@@ -436,11 +436,11 @@
         bottom: 140px;
         width: 525px;
     }
-    .FilterContainer {
+    .FilterContainer2 {
         width: 100%;
         background-color: #5e72eb;
         padding-top: 5px;
-        padding-bottom: 10px;
+        padding-bottom: 10px !important;
     }
     .btn {
         border: none;
