@@ -390,6 +390,7 @@
         margin-left: 5px;
     }
     .w3-sidebar {
+        height: 100vh;
         background-color: #fdc094;
         box-sizing: border-box;
         flex: 0 0 30%;
