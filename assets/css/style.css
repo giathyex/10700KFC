@@ -916,6 +916,7 @@
     .md-qty {
         color: #5e72eb;
         text-align: center;
+        margin-top: 20px;
     }
     h2 {
         font-size: 25px !important;
@@ -961,6 +962,7 @@
     }
     .md-food-name {
         text-align: center;
+        margin-top: 25px;
     }
     .md-price {
         text-align: center;
