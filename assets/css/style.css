@@ -342,10 +342,10 @@
     .close2 {
         position: absolute;
         top: 5px;
-        left: 25px;
+        left: 20px;
         color: #5e72eb;
         cursor: pointer;
-        font-size: 30px;
+        font-size: 35px;
     }
     .md-price {
         color: #5e72eb;
@@ -812,10 +812,10 @@
     .close2 {
         position: absolute;
         top: 5px;
-        left: 25px;
+        left: 20px;
         color: #5e72eb;
         cursor: pointer;
-        font-size: 30px;
+        font-size: 35px;
     }
     .md-price {
         color: #5e72eb;
