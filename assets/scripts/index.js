@@ -71,7 +71,8 @@ function renderList(doc, indexc) {
         'data-name': doc.data().name,
         'data-value': doc.data().price,
         'data-pic': doc.data().pic,
-        'data-detail': doc.data().detail
+        'data-detail': doc.data().detail,
+        'data-type': doc.data().type
     });
     $(divc).append(imgc);
     $(divc).append("<br><br>");
@@ -215,18 +216,61 @@ function searchProduct() {
     let input = document.getElementById('myInput').value
     input = input.toLowerCase();
     let x = document.getElementsByClassName("product");
+    var filter = document.getElementsByClassName("active")[0].id;
+    var check = false;
 
     for (var i = 0; i < x.length; i++) {
-        if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            x[i].style.display = "none";
-        } else {
+        if(filter == 'all') {check = true;}
+        if (x[i].innerHTML.toLowerCase().includes(input) && (x[i].outerHTML.includes(filter) || check)) {
             x[i].style.display = "list-item";
+            check = false;
+        } else {
+            x[i].style.display = "none";
         }
     }
 }
 
 const search = document.getElementById("myInput");
 search.addEventListener('keyup', searchProduct);
+
+// Filter
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    });
+}
+// Filter function
+function filterSelection() {
+    let x = document.getElementsByClassName("product");
+    let c = this.id;
+    let input = document.getElementById('myInput').value
+    input = input.toLowerCase();
+
+    for (var i = 0; i < x.length; i++) {
+        if ((x[i].outerHTML.toLowerCase().includes(c) || c == 'all') && x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display = "list-item";
+        } else {
+            x[i].style.display = "none";
+        }
+    }
+}
+
+const filterA = document.getElementById("all");
+filterA.addEventListener('click', filterSelection);
+const filterN = document.getElementById("noodles");
+filterN.addEventListener('click', filterSelection);
+const filterB = document.getElementById("bread");
+filterB.addEventListener('click', filterSelection);
+const filterE = document.getElementById("electronics");
+filterE.addEventListener('click', filterSelection);
+const filterF = document.getElementById("fashion");
+filterF.addEventListener('click', filterSelection);
 
 // Enable checkout button after valid table number is entered
 // Table number must be 0 < num <= 100
