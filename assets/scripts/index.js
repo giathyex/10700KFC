@@ -42,7 +42,7 @@ function cart_open() {
 
 // Qty slider
 var slider = document.getElementById("food_number");
-var output = document.getElementById("demo");
+var output = document.getElementById("md_qty");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
@@ -154,6 +154,7 @@ async function showInfo(product) {
 
         if (foodList.numberOfItem(e.srcElement.dataset.name) == 0) {
             foodNum.value = 1;
+            document.getElementById("add-to-cart").value = "Thêm vào giỏ hàng"
         } else {
             document.getElementById("add-to-cart").value = "Cập nhật giỏ hàng"
             foodNum.value = foodList.numberOfItem(e.srcElement.dataset.name);
@@ -185,17 +186,13 @@ document.querySelector('.close2').addEventListener("click", async function() {
 
     document.getElementById("popupmenu").style.height = "0%";
 
-    document.getElementById("food_number").value = 1;
-    document.getElementById("demo").innerHTML = "1";
 });
 
 var billindex = 0; // Index of div in bill
 
 // Add to cart function
 function addToCart(e, number) {
-
-    document.getElementById("food_number").value = 1;
-    document.getElementById("demo").innerHTML = "1";
+    document.getElementById("md_qty").innerHTML = number;
 
     document.getElementById("popupmenu").style.height = "0%";
     let name = e.srcElement.dataset.name;
@@ -225,6 +222,7 @@ function addToCart(e, number) {
         $(divbill).append(name + ' - ' + pricecomma + ' VND');
         foodList.changeNumOfItem(name, number);
         foodList.setBillNumber(name, billindex);
+
 
     } else {
         $('.productlist2[data-index=' + foodList.getBillIndex(name) + ']').remove();
