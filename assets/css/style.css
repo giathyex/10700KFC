@@ -341,7 +341,7 @@
     }
     .close2 {
         position: absolute;
-        top: 5px;
+        top: 10px;
         left: 20px;
         color: #5e72eb;
         cursor: pointer;
@@ -811,7 +811,7 @@
     }
     .close2 {
         position: absolute;
-        top: 5px;
+        top: 10px;
         left: 20px;
         color: #5e72eb;
         cursor: pointer;
