@@ -26,16 +26,16 @@ function numberWithCommas(x) {
 
 
 // Open cart mobile version
-var link = document.getElementById('cartmobile');
-link.addEventListener('click', cart_open);
+var btnc = document.getElementById("cartmobile");
+btnc.onclick = cart_open;
 
 function cart_open() {
-    if (document.getElementById("mySidebar").style.width != "100%") {
-        document.getElementById("mySidebar").style.width = "100%";
+    if ($('#mySidebar').css('height') === '0px') {
+        document.getElementById("mySidebar").style.height = "calc(100% - 150px)";
         $(window).scrollTop(0);
         document.body.style.overflow = 'hidden';
     } else {
-        document.getElementById("mySidebar").style.width = "0%";
+        document.getElementById("mySidebar").style.height = "0px";
         document.body.style.overflow = '';
     }
 }
@@ -113,16 +113,39 @@ function clickwaiter() {
     products.forEach(product => { showInfo(product) });
 }
 
+
 // Show pop-up function
-function showInfo(product) {
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+async function showInfo(product) {
     const foodNum = document.getElementById("food_number");
-    const button_add_to_cart = document.querySelector('.button-add-to-cart');
     product.addEventListener('click', function(e) {
 
         // Click outside the box
         if (typeof(e.srcElement.dataset.name) == "undefined" || typeof(e.srcElement.dataset.value) == "undefined") return;
 
-        document.querySelector('.bg-modal').style.display = "flex";
+        // Hide sidebar in mobile mode
+        // Mobile and sidebar is open
+        if (($('#mySidebar').css('height') != '0px') && ($('#popupmenu').css('position') === 'absolute')) {
+            document.getElementById("mySidebar").style.height = "0%";
+            document.body.style.overflow = '';
+
+            sleep(200).then(() => {
+                document.getElementById("popupmenu").style.height = "200%";
+            });
+        }
+        // PC
+        else if ($('#popupmenu').css('position') === 'fixed') {
+            document.getElementById("popupmenu").style.height = "100%";
+        }
+        // Mobile and sidebar is not open
+        else {
+            document.getElementById("popupmenu").style.height = "200%";
+        }
+
+
+
         $('.md-detail-pics').attr("src", e.srcElement.dataset.pic);
         $('.md-food-name').text(e.srcElement.dataset.name);
         var pricecomma = numberWithCommas(e.srcElement.dataset.value);
@@ -131,16 +154,18 @@ function showInfo(product) {
 
         if (foodList.numberOfItem(e.srcElement.dataset.name) == 0) {
             foodNum.value = 1;
-            button_add_to_cart.value = "Thêm vào giỏ hàng";
         } else {
+            document.getElementById("add-to-cart").value = "Cập nhật giỏ hàng"
             foodNum.value = foodList.numberOfItem(e.srcElement.dataset.name);
-            button_add_to_cart.value = "Cập nhật lại giỏ hàng";
         }
-        
-        button_add_to_cart.addEventListener("click", function() {
+
+        function displayDate() {
             var number = foodNum.value;
             addToCart(e, parseInt(number));
-        });
+        }
+
+        var btn = document.getElementById("add-to-cart");
+        btn.onclick = displayDate;
 
         if (foodList.numberOfItem(e.srcElement.dataset.name) > 0) {
             remove.style.display = 'block'
@@ -156,12 +181,12 @@ function showInfo(product) {
 
 
 // Add close button
-document.querySelector('.close2').addEventListener("click", function() {
-    document.querySelector('.bg-modal').style.display = "none";
-    $('.md-detail-pics').attr("src", "");
-    $('.md-food-name').text("");
-    $('.md-price').text("");
-    $('.md-detail').text("");
+document.querySelector('.close2').addEventListener("click", async function() {
+
+    document.getElementById("popupmenu").style.height = "0%";
+
+    document.getElementById("food_number").value = 1;
+    document.getElementById("demo").innerHTML = "1";
 });
 
 var billindex = 0; // Index of div in bill
@@ -169,7 +194,10 @@ var billindex = 0; // Index of div in bill
 // Add to cart function
 function addToCart(e, number) {
 
-    document.querySelector('.bg-modal').style.display = "none";
+    document.getElementById("food_number").value = 1;
+    document.getElementById("demo").innerHTML = "1";
+
+    document.getElementById("popupmenu").style.height = "0%";
     let name = e.srcElement.dataset.name;
     let value = e.srcElement.dataset.value;
     let pic = e.srcElement.dataset.pic;
@@ -223,7 +251,7 @@ function searchProduct() {
     var check = false;
 
     for (var i = 0; i < x.length; i++) {
-        if(filter == 'all') {check = true;}
+        if (filter == 'all') { check = true; }
         if (x[i].innerHTML.toLowerCase().includes(input) && (x[i].outerHTML.includes(filter) || check)) {
             x[i].style.display = "list-item";
             check = false;
@@ -236,6 +264,7 @@ function searchProduct() {
 const search = document.getElementById("myInput");
 search.addEventListener('keyup', searchProduct);
 
+
 // Filter
 
 // Add active class to the current control button (highlight it)
@@ -243,9 +272,9 @@ var btnContainer = document.getElementById("myBtnContainer");
 var btns = btnContainer.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
     });
 }
 // Filter function
@@ -274,6 +303,7 @@ const filterE = document.getElementById("electronics");
 filterE.addEventListener('click', filterSelection);
 const filterF = document.getElementById("fashion");
 filterF.addEventListener('click', filterSelection);
+
 
 // Enable checkout button after valid table number is entered
 // Table number must be 0 < num <= 100
@@ -346,15 +376,11 @@ function clickwaiterremove() {
 }
 
 function handler2(event) {
-    document.querySelector('.bg-modal').style.display = "none";
+    document.getElementById("popupmenu").style.height = "0%";
     let name = event.srcElement.dataset.name;
     foodList.removeItem(name);
     var totalcomma = numberWithCommas(foodList.getTotal());
     document.getElementById("totallabel").innerHTML = totalcomma;
 
     $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
-
-    if (foodList.getTotal() == 0) {
-        window.location.reload();
-    }
 }

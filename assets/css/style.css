@@ -89,25 +89,6 @@
     .InputContainer:after {
         box-shadow: var(--top-shadow);
     }
-    .FilterContainer {
-        width: 100%;
-        background-color: #5e72eb;
-    }
-    .btn {
-        border: none;
-        outline: none;
-        padding: 12px 16px;
-        background-color: #f1f1f1;
-        cursor: pointer;
-        margin-left: 8px;
-    }
-    .btn:hover {
-        background-color: #ddd;
-    }
-    .btn.active {
-        background-color: #666;
-        color: white;
-    }
     section.products {
         flex: 0 0 70%;
         padding: 50px;
@@ -314,15 +295,20 @@
             display: none;
         }
     }
-    .bg-modal {
+    #popupmenu {
         background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
-        height: 100%;
+        height: 0%;
         position: fixed;
         top: 0;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
+        -webkit-transition: height 0.2s ease-in-out;
+        -moz-transition: height 0.2s ease-in-out;
+        -o-transition: height 0.2s ease-in-out;
+        transition: height 0.2s ease-in-out;
     }
     .modal-contents {
         height: 450px;
@@ -450,6 +436,31 @@
         bottom: 140px;
         width: 525px;
     }
+    .FilterContainer {
+        width: 100%;
+        background-color: #5e72eb;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px !important;
+        background-color: #e3edf7;
+        border-radius: 8px !important;
+        cursor: pointer;
+        margin-left: 8px;
+        color: rgb(0, 0, 0);
+        transition: 0.2s ease-in-out;
+    }
+    .btn:hover {
+        background-color: #ddd;
+        transition: 0.2s ease-in-out;
+    }
+    .btn.active {
+        background-color: #fdc094;
+        color: rgb(0, 0, 0);
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -545,25 +556,6 @@
     }
     .InputContainer:after {
         box-shadow: var(--top-shadow);
-    }
-    .FilterContainer {
-        width: 100%;
-        background-color: #5e72eb;
-    }
-    .btn {
-        border: none;
-        outline: none;
-        padding: 12px 16px;
-        background-color: #f1f1f1;
-        cursor: pointer;
-        margin-left: 8px;
-    }
-    .btn:hover {
-        background-color: #ddd;
-    }
-    .btn.active {
-        background-color: #666;
-        color: white;
     }
     section.products {
         flex: 0 0 100%;
@@ -774,15 +766,20 @@
             display: none;
         }
     }
-    .bg-modal {
+    #popupmenu {
         background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
-        height: 200%;
+        height: 0%;
         position: absolute;
         top: 0;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
+        -webkit-transition: height 0.2s ease-in-out;
+        -moz-transition: height 0.2s ease-in-out;
+        -o-transition: height 0.2s ease-in-out;
+        transition: height 0.2s ease-in-out;
     }
     .modal-contents {
         height: fit-content;
@@ -858,12 +855,16 @@
         margin-left: 5px;
     }
     .w3-sidebar {
-        height: calc(100% - 150px);
-        width: 0%;
-        background-color: #fff;
+        height: 0px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
         position: fixed!important;
         z-index: 1;
         overflow: scroll;
+        -webkit-transition: height 0.2s ease-in-out;
+        -moz-transition: height 0.2s ease-in-out;
+        -o-transition: height 0.2s ease-in-out;
+        transition: height 0.2s ease-in-out;
     }
     .w3-bar-block .w3-dropdown-hover,
     .w3-bar-block .w3-dropdown-click {
@@ -918,5 +919,30 @@
     }
     h3 {
         font-size: 25px !important;
+    }
+    .FilterContainer {
+        width: 100%;
+        background-color: #5e72eb;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px !important;
+        background-color: #e3edf7;
+        border-radius: 8px !important;
+        cursor: pointer;
+        margin-left: 8px;
+        color: rgb(0, 0, 0);
+        transition: 0.2s ease-in-out;
+    }
+    .btn:hover {
+        background-color: #ddd;
+        transition: 0.2s ease-in-out;
+    }
+    .btn.active {
+        background-color: #fdc094;
+        color: rgb(0, 0, 0);
     }
 }
