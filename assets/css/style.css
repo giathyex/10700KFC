@@ -920,15 +920,20 @@
     h3 {
         font-size: 25px !important;
     }
-    .FilterContainer {
-        width: 100%;
+    .FilterContainer2 {
+        height: 65px;
         background-color: #5e72eb;
         padding-top: 5px;
         padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow: auto;
+        white-space: nowrap;
     }
     .btn {
         border: none;
         outline: none;
+        display: inline-block;
         padding: 12px !important;
         background-color: #e3edf7;
         border-radius: 8px !important;
@@ -937,6 +942,9 @@
         color: rgb(0, 0, 0);
         transition: 0.2s ease-in-out;
     }
+    .btn:last-child {
+        margin-right: 25px;
+    }
     .btn:hover {
         background-color: #ddd;
         transition: 0.2s ease-in-out;
@@ -944,5 +952,8 @@
     .btn.active {
         background-color: #fdc094;
         color: rgb(0, 0, 0);
+    }
+    .FilterContainer2::-webkit-scrollbar {
+        display: none;
     }
 }
