@@ -89,6 +89,25 @@
     .InputContainer:after {
         box-shadow: var(--top-shadow);
     }
+    .FilterContainer {
+        width: 100%;
+        background-color: #5e72eb;
+    }
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+        margin-left: 8px;
+    }
+    .btn:hover {
+        background-color: #ddd;
+    }
+    .btn.active {
+        background-color: #666;
+        color: white;
+    }
     section.products {
         flex: 0 0 70%;
         padding: 50px;
