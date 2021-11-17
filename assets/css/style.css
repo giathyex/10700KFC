@@ -56,7 +56,7 @@
         font-family: "Orbitron", sans-serif;
         font-weight: 600;
         -webkit-appearance: none;
-        transition: all 240ms ease-out;
+        transition: all 240ms linear;
         width: 100%;
     }
     input::placeholder {
@@ -173,7 +173,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill form input[type="submit"]:hover {
@@ -244,7 +244,7 @@
         margin: 1rem auto;
         padding: 0.75rem;
         max-width: 350px;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill-checkout button {
@@ -257,7 +257,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill-cancel {
@@ -273,7 +273,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill-actions button:hover {
@@ -305,10 +305,10 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        -webkit-transition: height 0.2s ease-in-out;
-        -moz-transition: height 0.2s ease-in-out;
-        -o-transition: height 0.2s ease-in-out;
-        transition: height 0.2s ease-in-out;
+        -webkit-transition: height 0.2s linear;
+        -moz-transition: height 0.2s linear;
+        -o-transition: height 0.2s linear;
+        transition: height 0.2s linear;
     }
     .modal-contents {
         height: 450px;
@@ -381,7 +381,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.productslist>div:after {
@@ -451,11 +451,11 @@
         cursor: pointer;
         margin-left: 8px;
         color: rgb(0, 0, 0);
-        transition: 0.2s ease-in-out;
+        transition: 0.2s linear;
     }
     .btn:hover {
         background-color: #ddd;
-        transition: 0.2s ease-in-out;
+        transition: 0.2s linear;
     }
     .btn.active {
         background-color: #fdc094;
@@ -524,7 +524,7 @@
         font-family: "Orbitron", sans-serif;
         font-weight: 600;
         -webkit-appearance: none;
-        transition: all 240ms ease-out;
+        transition: all 240ms linear;
         width: 100%;
     }
     input::placeholder {
@@ -644,7 +644,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill form input[type="submit"]:hover {
@@ -715,7 +715,7 @@
         margin: 1rem auto;
         padding: 0.75rem;
         max-width: 350px;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill-checkout button {
@@ -728,7 +728,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill-cancel {
@@ -744,7 +744,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.bill-actions button:hover {
@@ -776,10 +776,10 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        -webkit-transition: height 0.2s ease-in-out;
-        -moz-transition: height 0.2s ease-in-out;
-        -o-transition: height 0.2s ease-in-out;
-        transition: height 0.2s ease-in-out;
+        -webkit-transition: height 0.2s linear;
+        -moz-transition: height 0.2s linear;
+        -o-transition: height 0.2s linear;
+        transition: height 0.2s linear;
     }
     .modal-contents {
         height: fit-content;
@@ -846,7 +846,7 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s linear;
         width: 100%;
     }
     section.productslist>div:after {
@@ -861,10 +861,10 @@
         position: fixed!important;
         z-index: 1;
         overflow: scroll;
-        -webkit-transition: height 0.2s ease-in-out;
-        -moz-transition: height 0.2s ease-in-out;
-        -o-transition: height 0.2s ease-in-out;
-        transition: height 0.2s ease-in-out;
+        -webkit-transition: height 0.2s linear;
+        -moz-transition: height 0.2s linear;
+        -o-transition: height 0.2s linear;
+        transition: height 0.2s linear;
     }
     .w3-bar-block .w3-dropdown-hover,
     .w3-bar-block .w3-dropdown-click {
@@ -940,14 +940,14 @@
         cursor: pointer;
         margin-left: 8px;
         color: rgb(0, 0, 0);
-        transition: 0.2s ease-in-out;
+        transition: 0.2s linear;
     }
     .btn:last-child {
         margin-right: 25px;
     }
     .btn:hover {
         background-color: #ddd;
-        transition: 0.2s ease-in-out;
+        transition: 0.2s linear;
     }
     .btn.active {
         background-color: #fdc094;

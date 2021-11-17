@@ -31,7 +31,7 @@ btnc.onclick = cart_open;
 
 function cart_open() {
     if ($('#mySidebar').css('height') === '0px') {
-        document.getElementById("mySidebar").style.height = "calc(100% - 150px)";
+        document.getElementById("mySidebar").style.height = "calc(100% - 200px)";
         $(window).scrollTop(0);
         document.body.style.overflow = 'hidden';
     } else {
