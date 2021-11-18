@@ -41,8 +41,8 @@ function cart_open() {
 }
 
 // Qty slider
-var slider = document.getElementById("food_number");
-var output = document.getElementById("md_qty");
+const slider = document.getElementById("food_number");
+const output = document.getElementById("md_qty");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
@@ -160,6 +160,7 @@ async function showInfo(product) {
         } else {
             document.getElementById("add-to-cart").value = "Cập nhật giỏ hàng"
             foodNum.value = foodList.numberOfItem(e.srcElement.dataset.name);
+            output.innerHTML = foodNum.value;
         }
 
         function displayDate() {
