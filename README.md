@@ -2,7 +2,7 @@
 
 For a demo run, visit [this link](https://giathyex.github.io/10700KFC/).
 
-For some stupid security reason, when you decide to run locally via browser, you have to use [Visual Studio Code](https://code.visualstudio.com/) with [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension.
+For some stupid security reason, when you decide to run the HTML file locally via browser, you have to use [Visual Studio Code](https://code.visualstudio.com/) with [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension.
 
 Or you can install live-server by the following command:
 ```
