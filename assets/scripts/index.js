@@ -114,6 +114,16 @@ function clickwaiter() {
 }
 
 
+function handler2(event) {
+    document.getElementById("popupmenu").style.height = "0%";
+    let name = event.srcElement.dataset.name;
+    foodList.removeItem(name);
+    var totalcomma = numberWithCommas(foodList.getTotal());
+    document.getElementById("totallabel").innerHTML = totalcomma;
+
+    $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
+}
+
 // Show pop-up function
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
@@ -170,11 +180,16 @@ async function showInfo(product) {
         var btn = document.getElementById("add-to-cart");
         btn.onclick = displayDate;
 
+        function rmclicked() {
+            document.getElementById("remove-from-cart").value = "Xác nhận xóa?";
+            var btnff = document.getElementById("remove-from-cart");
+            btnff.onclick = handler2(e);
+        }
+
         if (foodList.numberOfItem(e.srcElement.dataset.name) > 0) {
-            remove.style.display = 'block'
-            remove.addEventListener('click', function() {
-                handler2(e);
-            })
+            remove.style.display = 'block';
+            var btnff = document.getElementById("remove-from-cart");
+            btnff.onclick = rmclicked;
         } else
             remove.style.display = 'none'
     });
@@ -389,16 +404,6 @@ cancel.addEventListener('click', cancelfunc);
 function clickwaiterremove() {
     let products2 = document.querySelectorAll('#productlist2i');
     products2.forEach(product2 => { showInfo(product2); });
-}
-
-function handler2(event) {
-    document.getElementById("popupmenu").style.height = "0%";
-    let name = event.srcElement.dataset.name;
-    foodList.removeItem(name);
-    var totalcomma = numberWithCommas(foodList.getTotal());
-    document.getElementById("totallabel").innerHTML = totalcomma;
-
-    $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
 }
 
 

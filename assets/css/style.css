@@ -31,6 +31,17 @@
     }
     .container {
         display: flex;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .container:hover {
+        transform: scale(1.01);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .Icon {
         min-width: 46px;
@@ -109,6 +120,17 @@
         text-align: center;
         cursor: pointer;
         height: 350px;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    section.products>div:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     /* Solving click event bug */
     section.products>div:after {
@@ -162,6 +184,17 @@
         font-size: 1rem;
         padding: 0.75rem;
         width: 100%;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    section.bill form input[type="text"]:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.bill form input[type="submit"] {
         display: block;
@@ -173,13 +206,18 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
     }
     section.bill form input[type="submit"]:hover {
-        background: #5e72eb;
-        border: 1px solid #5e72eb;
-        color: #000000;
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.bill-print {
         display: block;
@@ -257,8 +295,19 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
+    }
+    section.bill-checkout button:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+        color: #ffffff !important;
     }
     section.bill-cancel {
         border-top: 1px solid #5e72eb;
@@ -273,8 +322,19 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
+        color: #ffffff !important;
+    }
+    section.bill-cancel button:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.bill-actions button:hover {
         background: #5e72eb;
@@ -321,16 +381,25 @@
     .button-add-to-cart {
         background-color: #5e72eb;
         border-radius: 10px;
-        font-family: "Hind", sans-serif;
         color: #ffffff;
         position: absolute;
         bottom: 25px;
         width: 525px;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-add-to-cart:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .button-remove-from-cart {
         background-color: #eb5e5e;
         border-radius: 10px;
-        font-family: "Hind", sans-serif;
         color: #ffffff;
         position: absolute;
         left: 30px;
@@ -338,6 +407,32 @@
         width: 190px;
         display: none;
         text-align: center;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-remove-from-cart:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-remove-from-cart:focus {
+        background-color: #eb5e5e !important;
+        color: #ffffff;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-remove-from-cart:focus:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .close2 {
         position: absolute;
@@ -346,6 +441,17 @@
         color: #5e72eb;
         cursor: pointer;
         font-size: 35px;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .close2:hover {
+        transform: scale(1.15);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .md-price {
         color: #5e72eb;
@@ -381,8 +487,18 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
+    }
+    section.productslist>div:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.productslist>div:after {
         content: '\01F5D1';
@@ -452,10 +568,16 @@
         cursor: pointer;
         margin-left: 8px;
         color: rgb(0, 0, 0);
-        transition: 0.2s linear;
+        -webkit-transition: 0.2s linear !important;
+        -moz-transition: 0.2s linear !important;
+        -o-transition: 0.2s linear !important;
+        transition: 0.2s linear !important;
     }
     .btn:hover {
-        background-color: #ddd;
+        transform: scale(1.14);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
         transition: 0.2s linear;
     }
     .btn.active {
@@ -508,14 +630,34 @@
         margin-left: 12px;
         color: #5e72eb;
         background-color: #e3edf7;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .Icon:hover {
         color: #eb5e5e;
         background-color: #e3edf7;
+        transform: scale(1.1);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .InputContainer {
         width: 100%;
         background-color: #0022e2;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .InputContainer:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     input {
         background-color: #e3edf7;
@@ -581,6 +723,17 @@
         text-align: center;
         cursor: pointer;
         height: 300px;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    section.products>div:hover {
+        transform: scale(1.05) !important;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     /* Solving click event bug */
     section.products>div:after {
@@ -634,6 +787,17 @@
         font-size: 1rem;
         padding: 0.75rem;
         width: 100%;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    section.bill form input[type="text"]:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.bill form input[type="submit"] {
         display: block;
@@ -645,13 +809,18 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
     }
     section.bill form input[type="submit"]:hover {
-        background: #5e72eb;
-        border: 1px solid #5e72eb;
-        color: #000000;
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.bill-print {
         display: block;
@@ -729,8 +898,19 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
+    }
+    section.bill-checkout button:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+        color: #ffffff !important;
     }
     section.bill-cancel {
         border-top: 1px solid #5e72eb;
@@ -745,8 +925,19 @@
         font-size: 1rem;
         margin: 1rem auto;
         padding: 0.75rem;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
+    }
+    section.bill-cancel button:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+        color: #ffffff !important;
     }
     section.bill-actions button:hover {
         background: #5e72eb;
@@ -798,6 +989,17 @@
         border-radius: 10px;
         font-family: "Hind", sans-serif;
         color: #ffffff;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-add-to-cart:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .button-remove-from-cart {
         background-color: #eb5e5e;
@@ -807,6 +1009,25 @@
         display: none;
         text-align: center;
         margin-top: 10px;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-remove-from-cart:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-remove-from-cart:focus {
+        background-color: #eb5e5e !important;
+        color: #ffffff;
+    }
+    .button-remove-from-cart:focus:hover {
+        background-color: #eb5e5e !important;
+        color: #000000;
     }
     .close2 {
         position: absolute;
@@ -815,6 +1036,17 @@
         color: #5e72eb;
         cursor: pointer;
         font-size: 35px;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .close2:hover {
+        transform: scale(1.12);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .md-price {
         color: #5e72eb;
@@ -848,8 +1080,18 @@
         margin: 1rem auto;
         padding: 0.75rem;
         padding-right: 50px !important;
-        transition: 0.3s linear;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
         width: 100%;
+    }
+    section.productslist>div:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     section.productslist>div:after {
         content: '\01F5D1';
@@ -944,13 +1186,19 @@
         cursor: pointer;
         margin-left: 8px;
         color: rgb(0, 0, 0);
-        transition: 0.2s linear;
+        -webkit-transition: 0.2s linear !important;
+        -moz-transition: 0.2s linear !important;
+        -o-transition: 0.2s linear !important;
+        transition: 0.2s linear !important;
     }
     .btn:last-child {
         margin-right: 25px;
     }
     .btn:hover {
-        background-color: #ddd;
+        transform: scale(1.12);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
         transition: 0.2s linear;
     }
     .btn.active {
