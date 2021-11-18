@@ -390,3 +390,13 @@ function handler2(event) {
 
     $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
 }
+
+
+// Change between moblle and PC version
+window.addEventListener('resize', function(event) {
+    if ((document.getElementById("popupmenu").style.height > "0%") && (window.screen.width > 900)) {
+        document.getElementById("popupmenu").style.height = "100%";
+    } else if (document.getElementById("popupmenu").style.height > "0%") {
+        document.getElementById("popupmenu").style.height = "200%";
+    }
+});
