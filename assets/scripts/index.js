@@ -30,12 +30,12 @@ var btnc = document.getElementById("cartmobile");
 btnc.onclick = cart_open;
 
 function cart_open() {
-    if ($('#mySidebar').css('height') === '0px') {
-        document.getElementById("mySidebar").style.height = "calc(100% - 100px)";
+    if ($('#mySidebar2').css('height') === '0px') {
+        document.getElementById("mySidebar2").style.height = "calc(100% - 100px)";
         $(window).scrollTop(0);
         document.body.style.overflow = 'hidden';
     } else {
-        document.getElementById("mySidebar").style.height = "0px";
+        document.getElementById("mySidebar2").style.height = "0px";
         document.body.style.overflow = '';
     }
 }
@@ -140,8 +140,8 @@ async function showInfo(product) {
 
         // Hide sidebar in mobile mode
         // Mobile and sidebar is open
-        if (($('#mySidebar').css('height') != '0px') && ($('#popupmenu').css('position') === 'absolute')) {
-            document.getElementById("mySidebar").style.height = "0%";
+        if (($('#mySidebar2').css('height') != '0px') && ($('#popupmenu').css('position') === 'absolute')) {
+            document.getElementById("mySidebar2").style.height = "0%";
             document.body.style.overflow = '';
 
             sleep(200).then(() => {
@@ -413,12 +413,14 @@ window.addEventListener('resize', function(event) {
         if (document.getElementById("popupmenu").style.height > "0%") {
             document.getElementById("popupmenu").style.height = "100%";
         }
-        document.getElementById("mySidebar").style.height = document.getElementById("foodlist").style.height;
+        document.getElementById("mySidebar2").style.height = document.getElementById("foodlist").style.height;
         document.body.style.overflow = 'scroll';
     } else if (window.screen.width <= 900) {
         if (document.getElementById("popupmenu").style.height > "0%") {
             document.getElementById("popupmenu").style.height = "200%";
         }
-        document.getElementById("mySidebar").style.height = "0%";
+        if (parseInt($('#mySidebar2').css('height')) < 1) {
+            document.getElementById("mySidebar2").style.height = "0%";
+        }
     }
 });
