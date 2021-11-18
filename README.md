@@ -37,16 +37,16 @@ Mobile interface is also available:
 
 <p align="center">
   <br>
-  <img src="preview_pictures/M1.PNG">
+  <img src="preview_pictures/M1.png" style="width:50%;">
   <br>
   <br>
-  <img src="preview_pictures/M2.PNG">
+  <img src="preview_pictures/M2.png" style="width:50%;">
   <br>
   <br>
-  <img src="preview_pictures/M3.PNG">
+  <img src="preview_pictures/M3.png" style="width:50%;">
   <br>
   <br>
-  <img src="preview_pictures/M4.PNG">
+  <img src="preview_pictures/M4.png" style="width:50%;">
   <br>
 </p>
 
