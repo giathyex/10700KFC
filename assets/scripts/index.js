@@ -192,6 +192,16 @@ document.querySelector('.close2').addEventListener("click", async function() {
 
 });
 
+$('#popupmenu').click(function(event) {
+    var $target = $(event.target);
+    if (!$target.closest('#popupcontent').length) {
+        document.getElementById("food_number").value = 1;
+        document.getElementById("md_qty").innerHTML = "1";
+
+        document.getElementById("popupmenu").style.height = "0%";
+    }
+});
+
 var billindex = 0; // Index of div in bill
 
 // Add to cart function
