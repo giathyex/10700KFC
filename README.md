@@ -2,7 +2,9 @@
 
 For a demo run, visit [this link](https://giathyex.github.io/10700KFC/).
 
-When you decide to run locally via browser, please install live-server for the same result as demo:
+When you decide to run locally via browser, you have to use [Visual Studio Code](https://code.visualstudio.com/) with [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension.
+
+Or you can install live-server by the following command:
 ```
 npm install -g live-server
 ```
@@ -25,6 +27,26 @@ to view the result.
   <br>
   <br>
   <img src="preview_pictures/4.PNG">
+  <br>
+  <br>
+  <img src="preview_pictures/5.PNG">
+  <br>
+</p>
+
+Mobile interface is also available:
+
+<p align="center">
+  <br>
+  <img src="preview_pictures/M1.PNG">
+  <br>
+  <br>
+  <img src="preview_pictures/M2.PNG">
+  <br>
+  <br>
+  <img src="preview_pictures/M3.PNG">
+  <br>
+  <br>
+  <img src="preview_pictures/M4.PNG">
   <br>
 </p>
 
