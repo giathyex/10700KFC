@@ -404,9 +404,16 @@ function handler2(event) {
 
 // Change between moblle and PC version
 window.addEventListener('resize', function(event) {
-    if ((document.getElementById("popupmenu").style.height > "0%") && (window.screen.width > 900)) {
-        document.getElementById("popupmenu").style.height = "100%";
-    } else if (document.getElementById("popupmenu").style.height > "0%") {
-        document.getElementById("popupmenu").style.height = "200%";
+    if (window.screen.width > 900) {
+        if (document.getElementById("popupmenu").style.height > "0%") {
+            document.getElementById("popupmenu").style.height = "100%";
+        }
+        document.getElementById("mySidebar").style.height = document.getElementById("foodlist").style.height;
+        document.body.style.overflow = 'scroll';
+    } else if (window.screen.width <= 900) {
+        if (document.getElementById("popupmenu").style.height > "0%") {
+            document.getElementById("popupmenu").style.height = "200%";
+        }
+        document.getElementById("mySidebar").style.height = "0%";
     }
 });
