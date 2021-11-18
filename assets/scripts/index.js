@@ -146,13 +146,12 @@ async function showInfo(product) {
             document.getElementById("popupmenu").style.height = "200%";
         }
 
-
-
         $('.md-detail-pics').attr("src", e.srcElement.dataset.pic);
         $('.md-food-name').text(e.srcElement.dataset.name);
         var pricecomma = numberWithCommas(e.srcElement.dataset.value);
         $('.md-price').text(pricecomma + " VND");
         $('.md-detail').text(e.srcElement.dataset.detail);
+
 
         if (foodList.numberOfItem(e.srcElement.dataset.name) == 0) {
             foodNum.value = 1;
