@@ -334,6 +334,8 @@ const filterE = document.getElementById("electronics");
 filterE.addEventListener('click', filterSelection);
 const filterF = document.getElementById("fashion");
 filterF.addEventListener('click', filterSelection);
+const filterV = document.getElementById("vehicle");
+filterV.addEventListener('click', filterSelection);
 
 
 // Enable checkout button after valid table number is entered
