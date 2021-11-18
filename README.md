@@ -2,7 +2,9 @@
 
 For a demo run, visit [this link](https://giathyex.github.io/10700KFC/).
 
-When you decide to run locally via browser, please install live-server for the same result as demo:
+When you decide to run locally via browser, you have to use [Visual Studio Code](https://code.visualstudio.com/) with [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension.
+
+Or you can install live-server by the following command:
 ```
 npm install -g live-server
 ```
