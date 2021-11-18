@@ -117,11 +117,12 @@ function clickwaiter() {
 function handler2(event) {
     document.getElementById("popupmenu").style.height = "0%";
     let name = event.srcElement.dataset.name;
+
     foodList.removeItem(name);
     var totalcomma = numberWithCommas(foodList.getTotal());
     document.getElementById("totallabel").innerHTML = totalcomma;
 
-    $('.productlist2[data-index=' + event.srcElement.dataset.index + ']').remove();
+    $('.productlist2[data-name="' + event.srcElement.dataset.name + '"]').remove();
 }
 
 // Show pop-up function
@@ -181,7 +182,6 @@ async function showInfo(product) {
         btn.onclick = displayDate;
 
         function rmclicked() {
-            document.getElementById("remove-from-cart").value = "Xác nhận xóa?";
             var btnff = document.getElementById("remove-from-cart");
             btnff.onclick = handler2(e);
         }
