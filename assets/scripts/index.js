@@ -24,6 +24,11 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
+//Sign in button for staff
+const staffSignIn = document.getElementById("staff");
+staffSignIn.addEventListener('click', function(e){
+    window.location = "kitchen.html";
+});
 
 // Open cart mobile version
 var btnc = document.getElementById("cartmobile");
