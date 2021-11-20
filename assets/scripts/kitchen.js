@@ -20,24 +20,28 @@ function createFormOrder(doc){
     var tableNo = document.createElement("span");
     var foodList = document.createElement("span");
     var totalPrice = document.createElement("span");
-    var icon = document.createElement("span");
+    var button = document.createElement("button");
+    button.innerHTML = "Hoàn thành";
 
     div.classList.add('form-info');
 
     div.setAttribute("data-id", doc.id);
     tableNo.textContent = doc.data().table;
     totalPrice.textContent = doc.data().total;
-    foodList.textContent = doc.data().food_name;
-    icon.classList.add("far", "fa-trash-alt");
+    foodList.innerHTML = "";
+    doc.data().food_name.forEach(food => {
+        foodList.innerHTML = foodList.innerHTML + food + '<br/>';
+    });
+   // icon.classList.add("far", "fa-trash-alt");
 
     div.appendChild(tableNo);
-    div.appendChild(totalPrice);
     div.appendChild(foodList);
-    div.appendChild(icon);
+    div.appendChild(totalPrice);
+    div.appendChild(button);
 
     formData.appendChild(div);
 
-    icon.addEventListener('click', () => {
+    button.addEventListener('click', () => {
         var ref = db.collection("orders").doc(doc.id);
         ref.delete();
     });
