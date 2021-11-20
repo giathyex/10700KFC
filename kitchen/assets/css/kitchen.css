@@ -92,3 +92,71 @@ button:hover {
 hr {
     border-top: 1px solid #eb5e5e !important;
 }
+
+
+/* Style all input fields */
+
+input {
+    width: 20%;
+    padding: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    text-align: center;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+input:hover {
+    transform: scale(1.05);
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+input[type=button] {
+    background: #eb5e5e;
+    border-radius: 10px !important;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+    color: #ffffff !important;
+    cursor: pointer;
+    visibility: visible;
+}
+
+input[type=button]:disabled {
+    visibility: hidden;
+}
+
+input[type=button]:hover {
+    transform: scale(1.05);
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+.container2 {
+    padding: 20px;
+    background-color: #fdc094;
+}
+
+#message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}

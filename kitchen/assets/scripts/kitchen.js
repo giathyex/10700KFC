@@ -68,3 +68,24 @@ db.collection("orders").onSnapshot((snap) => {
         }
     })
 })
+
+
+// Enable enter table box after some stuff is added to cart
+document.getElementById("pass-enter").addEventListener("input", function() {
+    var passs = document.getElementById("pass-enter").value;
+    if (passs.length > 5) {
+        document.getElementById('sign-in').removeAttribute("disabled");
+        document.getElementById('sign-in').value = "Tiếp tục";
+    } else {
+        document.getElementById('sign-in').setAttribute("disabled", null);
+        document.getElementById('sign-in').value = "Vui lòng nhập mật khẩu";
+    }
+});
+
+// Sign-in button
+const signinn = document.getElementById("sign-in");
+signinn.addEventListener('click', signinnf);
+
+function signinnf() {
+    console.log(1);
+}
