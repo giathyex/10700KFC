@@ -36,6 +36,8 @@ to view the result.
 </p>
 
 Mobile interface is also available:
+
+<p align="center">
   <br>
   <img src="preview_pictures/M1.png" style="width:50%;">
   <br>
