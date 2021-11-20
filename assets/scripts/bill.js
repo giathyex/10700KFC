@@ -55,6 +55,7 @@ loadbill();
 })();
 
 const firebaseData = db.collection("orders");
+const billPrint = document.querySelector('.bill');
 
 function sendOrderToServer(tableNo, totalPrice, orders) {
     var foodList = [];
@@ -65,6 +66,11 @@ function sendOrderToServer(tableNo, totalPrice, orders) {
         table: tableNo,
         total: totalPrice,
         food_name: foodList,
+    }).then(() => {
+        var noti = document.createElement('div');
+        noti.className = "noti-to-customer";
+        noti.innerHTML = "Đơn đã được gửi tới bếp. Xin quý khách vui lòng đợi trong giây lát!";
+        billPrint.appendChild(noti);
     });
 }
 
