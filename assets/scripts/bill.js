@@ -71,6 +71,7 @@ function sendOrderToServer(tableNo, totalPrice, orders) {
         noti.className = "noti-to-customer";
         noti.innerHTML = "Đơn đã được gửi tới bếp. <br> Xin quý khách vui lòng đợi trong giây lát!";
         billPrint.appendChild(noti);
+        window.localStorage.clear();
     });
 }
 
