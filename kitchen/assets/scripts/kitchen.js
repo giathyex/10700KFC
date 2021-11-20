@@ -43,7 +43,7 @@ function createFormOrder(doc) {
     totalPrice.className = "flex-item-third";
     var button = document.createElement("button");
     button.className = "flex-item-four";
-    button.innerHTML = "Hoàn thành";
+    button.innerHTML = '<i class="fa fa-check-square" aria-hidden="true"></i>';
 
     div.classList.add('form-info');
 
