@@ -77,13 +77,14 @@ signinn.addEventListener('click', signinnf);
 function signinnf() {
     var namew = document.getElementById("name-enter").value;
     var passw = document.getElementById("pass-enter").value;
-    var passi = passw + "t";
+    var passii = namew.charAt(2);
+    var passi = passw + passii;
     try {
         db.collection(namew).doc(passw).get().then(doc => {
             //Valid code
             if (doc.exists) {
                 // Valid password
-                if (doc.get(passi) != null) {
+                if ((doc.get(passi) != null) && (doc.data().pass == namew)) {
                     document.getElementById("signinpage").style.display = "none";
                     document.getElementById("mainpage").style.display = "";
 

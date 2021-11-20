@@ -375,6 +375,14 @@ document.getElementById("selectedproduct").addEventListener("DOMSubtreeModified"
     }
 });
 
+// Scroll screen, easier to input
+document.getElementById("tablen").addEventListener("click", function() {
+    if (window.screen.width <= 900) {
+        var elem = document.getElementById("cancel");
+        elem.scrollIntoView();
+    }
+});
+
 
 // Passing variable and open bill.html
 function checkoutfunc() {
@@ -424,14 +432,4 @@ window.addEventListener('resize', function(event) {
             document.getElementById("mySidebar2").style.height = "0%";
         }
     }
-});
-
-var $htmlOrBody = $('html, body'), // scrollTop works on <body> for some browsers, <html> for others
-    scrollTopPadding = 8;
-
-$('textarea').focus(function() {
-    // get textarea's offset top position
-    var textareaTop = $(this).offset().top;
-    // scroll to the textarea
-    $htmlOrBody.scrollTop(textareaTop - scrollTopPadding);
 });

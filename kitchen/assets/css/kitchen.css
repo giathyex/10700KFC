@@ -219,7 +219,7 @@
         -moz-transition: 0.2s linear;
         -o-transition: 0.2s linear;
         transition: 0.2s linear;
-        height: 30px !important;
+        height: fit-content !important;
         width: 30px !important;
         color: #ffffff !important;
         cursor: pointer;
