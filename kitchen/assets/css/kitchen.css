@@ -10,14 +10,6 @@
     align-items: center;
 }
 
-.form-orders h2 {
-    padding: 0 25px;
-    text-align: initial;
-    margin: 32px 0;
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-}
-
 .form-container {
     border-radius: 25px;
     width: 80%;
