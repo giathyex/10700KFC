@@ -378,7 +378,7 @@ document.getElementById("selectedproduct").addEventListener("DOMSubtreeModified"
 // Scroll screen, easier to input
 document.getElementById("tablen").addEventListener("click", function() {
     if (window.screen.width <= 900) {
-        var elem = document.getElementById("cancel");
+        var elem = document.getElementById("npe");
         elem.scrollIntoView();
     }
 });
