@@ -116,7 +116,7 @@
         padding: 3rem;
         position: relative;
         margin: 1rem;
-        flex: 0 0 5%;
+        width: 200px;
         text-align: center;
         cursor: pointer;
         height: 350px;
@@ -724,7 +724,7 @@
         margin-bottom: 10px;
         margin-left: 2%;
         margin-right: 2%;
-        flex: 0 0 46%;
+        width: 46%;
         text-align: center;
         cursor: pointer;
         height: 300px;
