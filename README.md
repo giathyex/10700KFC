@@ -17,6 +17,8 @@ live-server
 ```
 to view the result.
 
+Preview pictures:
+
 <p align="center">
   <br>
   <img src="preview_pictures/1.PNG">
@@ -35,20 +37,30 @@ to view the result.
   <br>
 </p>
 
-Mobile interface is also available:
+Mobile version is also available:
 
 <p align="center">
   <br>
-  <img src="preview_pictures/M1.png" style="width:50%;">
+  <img src="preview_pictures/M1.png" style="width:100%;">
+  <br>
+</p>
+
+Kitchen interface receive real-time update from database of customers orders
+
+<p align="center">
+  <br>
+  <img src="preview_pictures/B1.PNG">
   <br>
   <br>
-  <img src="preview_pictures/M2.png" style="width:50%;">
+  <img src="preview_pictures/B2.PNG">
   <br>
+</p>
+
+Mobile version of kitchen interface: 
+
+<p align="center">
   <br>
-  <img src="preview_pictures/M3.png" style="width:50%;">
-  <br>
-  <br>
-  <img src="preview_pictures/M4.png" style="width:50%;">
+  <img src="preview_pictures/MB1.png" style="width:100%;">
   <br>
 </p>
 
