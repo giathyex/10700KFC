@@ -29,26 +29,32 @@
         </center>
     </section>
 
-    <div class="container2">
+    <div class="container2" id="signinpage">
         <center>
             <br><br>
-            <input type="password" id="pass-enter" placeholder="Nhập mật khẩu">
+            <h3>Đăng nhập</h3>
+            <br>
+            <input type="text" id="name-enter" placeholder="Tên đăng nhập">
+            <br>
+            <input type="password" id="pass-enter" placeholder="Mật khẩu">
             <br>
             <input type="button" value="Vui lòng nhập mật khẩu" id="sign-in" disabled>
+            <br>
+            <h5 id="errort" style="display:none;">Đã có lỗi hoặc sai mật khẩu</h5>
         </center>
     </div>
 
-    <div class="form-orders">
+    <div class="form-orders" style="display:none;" id="mainpage">
         <br>
         <h3>Đơn chưa xử lý</h3>
         <br>
-        <div class="form-container">
-            <div class="form-data">
-                <div class="form-titles">
-                    <h5 class="flex-item-first">Bàn</h5>
-                    <h5 class="flex-item-secnd">Chi tiết</h5>
-                    <h5 class="flex-item-third">Giá tiền</h5>
-                    <h5 class="flex-item-four">Hoàn thành</h5>
+        <div class="form-container ">
+            <div class="form-data ">
+                <div class="form-titles ">
+                    <h5 class="flex-item-first ">Bàn</h5>
+                    <h5 class="flex-item-secnd ">Chi tiết</h5>
+                    <h5 class="flex-item-third ">Giá tiền</h5>
+                    <h5 class="flex-item-four ">Hoàn thành</h5>
                 </div>
                 <hr>
             </div>
@@ -56,4 +62,4 @@
     </div>
 </body>
 
-<script src="assets/scripts/kitchen.js"></script>
+<script src="assets/scripts/kitchen.js "></script>

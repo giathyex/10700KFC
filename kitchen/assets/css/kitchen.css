@@ -145,6 +145,7 @@ input[type=button]:hover {
 .container2 {
     padding: 20px;
     background-color: #fdc094;
+    min-height: 100vh !important;
 }
 
 #message {
