@@ -376,12 +376,15 @@ document.getElementById("selectedproduct").addEventListener("DOMSubtreeModified"
 });
 
 // Scroll screen, easier to input
-document.getElementById("tablen").addEventListener("click", function() {
+document.getElementById("tablen").addEventListener("click", scrollinput);
+document.getElementById("tablen").addEventListener("touchstart", scrollinput);
+
+function scrollinput() {
     if (window.screen.width <= 900) {
         var elem = document.getElementById("npe");
         elem.scrollIntoView();
     }
-});
+}
 
 
 // Passing variable and open bill.html
