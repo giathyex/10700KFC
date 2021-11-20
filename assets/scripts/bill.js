@@ -57,22 +57,15 @@ loadbill();
 const firebaseData = db.collection("orders");
 
 function sendOrderToServer(tableNo, totalPrice, orders) {
-    console.log(tableNo, "\n", totalPrice, "\n");
     var foodList = [];
     orders.forEach(element => {
-        console.log(element.innerHTML);
         foodList.push(element.innerHTML);
     });
     firebaseData.doc().set({
         table: tableNo,
         total: totalPrice,
         food_name: foodList,
-    }).then(() => {
-        console.log("Data sent!");
     });
 }
 
-const sendToSvBtn = document.getElementById("send-to-server");
-sendToSvBtn.addEventListener('click', function() {
-    sendOrderToServer(localStorage.getItem("tabno"), localStorage.getItem("totalpr"), document.querySelectorAll("#productlist2i"))
-});
+sendOrderToServer(localStorage.getItem("tabno"), localStorage.getItem("totalpr"), document.querySelectorAll("#productlist2i"));

@@ -1,0 +1,102 @@
+/* Form data */
+
+.form-orders {
+    background-color: #fdc094;
+    min-height: 100vh !important;
+    padding-bottom: 100px !important;
+    padding-top: 10px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-orders h2 {
+    padding: 0 25px;
+    text-align: initial;
+    margin: 32px 0;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+}
+
+.form-container {
+    border-radius: 25px;
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    margin: 0 auto;
+}
+
+.form-data {
+    padding: 25px 0;
+}
+
+.form-titles {
+    display: flex;
+    padding: 0 25px;
+}
+
+.form-titles>h4 {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.form-info {
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    display: flex;
+    border-bottom: 0.5px dashed #eb5e5e;
+}
+
+.fa-trash-alt {
+    position: absolute;
+    right: 20px;
+}
+
+.flex-item-first {
+    flex: 10%;
+    text-align: center;
+    margin-left: -30px !important;
+}
+
+.flex-item-secnd {
+    flex: 60%;
+}
+
+.flex-item-third {
+    flex: 15%;
+    text-align: center;
+}
+
+.flex-item-four {
+    flex: 15%;
+    text-align: center;
+}
+
+button {
+    background: #eb5e5e;
+    border: 1px solid #eb5e5e;
+    border-radius: 10px !important;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+    height: 40px !important;
+    color: #ffffff !important;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+hr {
+    border-top: 1px solid #eb5e5e !important;
+}

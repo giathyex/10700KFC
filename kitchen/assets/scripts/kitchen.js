@@ -13,26 +13,36 @@ db.settings({
     timestampsInSnapshots: true
 });
 
+// Number comma formatting
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 const formData = document.querySelector(".form-data");
 
-function createFormOrder(doc){
+function createFormOrder(doc) {
     var div = document.createElement("div");
+    div.className = "form-titles";
     var tableNo = document.createElement("span");
+    tableNo.className = "flex-item-first";
     var foodList = document.createElement("span");
+    foodList.className = "flex-item-secnd";
     var totalPrice = document.createElement("span");
+    totalPrice.className = "flex-item-third";
     var button = document.createElement("button");
+    button.className = "flex-item-four";
     button.innerHTML = "Hoàn thành";
 
     div.classList.add('form-info');
 
     div.setAttribute("data-id", doc.id);
     tableNo.textContent = doc.data().table;
-    totalPrice.textContent = doc.data().total;
+    totalPrice.textContent = numberWithCommas(doc.data().total);
     foodList.innerHTML = "";
     doc.data().food_name.forEach(food => {
         foodList.innerHTML = foodList.innerHTML + food + '<br/>';
     });
-   // icon.classList.add("far", "fa-trash-alt");
+    // icon.classList.add("far", "fa-trash-alt");
 
     div.appendChild(tableNo);
     div.appendChild(foodList);
@@ -58,8 +68,3 @@ db.collection("orders").onSnapshot((snap) => {
         }
     })
 })
-
-const signOut = document.getElementById("sign-out")
-signOut.addEventListener('click', () => {
-    window.location = "index.html"
-});
