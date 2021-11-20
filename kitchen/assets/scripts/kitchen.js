@@ -30,6 +30,8 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
+const formData = document.querySelector(".form-data");
+
 function createFormOrder(doc) {
     var div = document.createElement("div");
     div.className = "form-titles";
@@ -84,8 +86,6 @@ function signinnf() {
                 if (doc.get(passi) != null) {
                     document.getElementById("signinpage").style.display = "none";
                     document.getElementById("mainpage").style.display = "";
-
-                    const formData = document.querySelector(".form-data");
 
                     // Show orders real-time
                     db.collection("orders").onSnapshot((snap) => {
