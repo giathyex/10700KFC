@@ -64,7 +64,13 @@ db.collection("orders").onSnapshot((snap) => {
             createFormOrder(doc.doc);
         } else if (doc.type === "removed") {
             var div = document.querySelector(`[data-id=${doc.doc.id}]`);
-            formData.removeChild(div);
+            try {
+                formData.removeChild(div);
+            }
+            catch {
+                window.location.reload();
+            }
+            
         }
     })
 })

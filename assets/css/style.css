@@ -585,6 +585,10 @@
         background-color: #fdc094;
         color: rgb(0, 0, 0);
     }
+    .noti-to-customer {
+        text-align: center;
+        font-weight: bold;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -1215,5 +1219,9 @@
     }
     .md-price {
         text-align: center;
+    }
+    .noti-to-customer {
+        text-align: center;
+        font-weight: bold;
     }
 }
