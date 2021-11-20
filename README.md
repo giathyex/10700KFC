@@ -36,17 +36,6 @@ to view the result.
 </p>
 
 Mobile interface is also available:
-
-<div class="row">
-                    <div class="column">
-                         <img src="preview_pictures/M1.png" style="width:100%;">
-                    </div>
-                    <div class="column">
-                        <img src="preview_pictures/M2.png" style="width:100%;">
-                    </div>
-                </div>
-                
-<p align="center">
   <br>
   <img src="preview_pictures/M1.png" style="width:50%;">
   <br>
