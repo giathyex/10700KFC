@@ -32,13 +32,13 @@ signinn.addEventListener('click', signinnf);
 function signinnf() {
     var namew = document.getElementById("name-enter").value;
     var passw = document.getElementById("pass-enter").value;
-    var namei = namew + "t";
+    var passi = passw + "t";
     try {
         db.collection(namew).doc(passw).get().then(doc => {
             //Valid code
             if (doc.exists) {
                 // Valid password
-                if (doc.get(namei) != null) {
+                if (doc.get(passi) != null) {
                     document.getElementById("signinpage").style.display = "none";
                     document.getElementById("mainpage").style.display = "";
 
