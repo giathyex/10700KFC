@@ -92,7 +92,7 @@
                 <div id="checkout-or-reset" style="display:none !important">
                     <!-- Table input box -->
                     <div class="bill-detail">
-                        <form>
+                        <form id="checkoutform" onsubmit="return false;">
                             <div>
                                 <input type="text" name="tablen" id="tablen" placeholder="Vui lòng chọn món trước" disabled>
                             </div>
@@ -101,7 +101,7 @@
 
                     <!-- Check out button -->
                     <section class="bill-checkout">
-                        <button id="checkout" disabled>Xác nhận thanh toán</button>
+                        <button type="submit" id="checkout" disabled>Xác nhận thanh toán</button>
                     </section>
                     <br>
                     <!-- Cancel button -->

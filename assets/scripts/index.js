@@ -337,6 +337,22 @@ const filterV = document.getElementById("vehicle");
 filterV.addEventListener('click', filterSelection);
 
 
+// Passing variable and open bill.html
+function checkoutfunc() {
+    var orders = document.querySelector('#selectedproduct').innerHTML;
+    var tabno = document.getElementById('tablen').value;
+
+    localStorage.setItem("orders", orders);
+    localStorage.setItem("tabno", tabno);
+    localStorage.setItem("totalpr", foodList.getTotal());
+
+    window.location = 'bill.html';
+}
+
+const checkout = document.getElementById("checkout");
+checkout.addEventListener('click', checkoutfunc);
+
+
 // Enable checkout button after valid table number is entered
 // Table number must be 0 < num <= 100
 document.getElementById("tablen").addEventListener("keyup", function() {
@@ -346,18 +362,14 @@ document.getElementById("tablen").addEventListener("keyup", function() {
         document.getElementById("checkout").style.background = "#5e72eb";
         document.getElementById("checkout").style.border = "1px solid #5e72eb";
         document.getElementById('checkout').innerHTML = "Xác nhận thanh toán";
-
-    } else if ((nameInput != "") && ((nameInput > 100) || (nameInput <= 0))) {
-        document.getElementById('checkout').setAttribute("disabled", null);
-        document.getElementById('checkout').innerHTML = "Mã số không hợp lệ";
-        document.getElementById("checkout").style.background = "#b9c2f3";
-        document.getElementById("checkout").style.border = "1px solid #b9c2f3";
+        document.getElementById("checkoutform").addEventListener('submit', checkoutfunc);
 
     } else {
         document.getElementById('checkout').setAttribute("disabled", null);
         document.getElementById('checkout').innerHTML = "Mã số không hợp lệ";
         document.getElementById("checkout").style.background = "#b9c2f3";
         document.getElementById("checkout").style.border = "1px solid #b9c2f3";
+        document.getElementById("checkoutform").removeEventListener('submit', checkoutfunc);
 
     }
 });
@@ -377,31 +389,16 @@ document.getElementById("selectedproduct").addEventListener("DOMSubtreeModified"
 
 // Scroll screen, easier to input
 document.getElementById("tablen").addEventListener("click", scrollinput);
-window.visualViewport.addEventListener('resize', scrollinput);
+document.getElementById("tablen").addEventListener("touchstart", scrollinput);
 
 function scrollinput() {
-    if (window.screen.width <= 900) {
-        var elem = document.getElementById("npe");
-        elem.scrollIntoView();
-    }
+    sleep(200).then(() => {
+        if (window.screen.width <= 900) {
+            var elem = document.getElementById("npe");
+            elem.scrollIntoView();
+        }
+    });
 }
-
-
-// Passing variable and open bill.html
-function checkoutfunc() {
-    var orders = document.querySelector('#selectedproduct').innerHTML;
-    var tabno = document.getElementById('tablen').value;
-
-    localStorage.setItem("orders", orders);
-    localStorage.setItem("tabno", tabno);
-    localStorage.setItem("totalpr", foodList.getTotal());
-
-    window.location = 'bill.html';
-}
-
-const checkout = document.getElementById("checkout");
-checkout.addEventListener('click', checkoutfunc);
-
 
 // Cancel function
 function cancelfunc() {
