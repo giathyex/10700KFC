@@ -362,6 +362,11 @@ function checkoutfunc() {
 }
 
 function confirmPayment() {
+    var hideKeyboard = function() {
+        document.activeElement.blur();
+        $("#tablen").blur();
+    };
+
     $(window).scrollTop(0);
     // Hide sidebar in mobile mode
     // Mobile and sidebar is open
@@ -386,8 +391,6 @@ function confirmPayment() {
     agree.onclick = () => {
         checkoutfunc();
     }
-
-    console.log("check out");
 
     var disag = document.getElementById("confirm-no");
     disag.onclick = () => {
