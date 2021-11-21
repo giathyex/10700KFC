@@ -450,7 +450,7 @@
         transition: 0.2s linear;
     }
     .button-yes {
-        background-color: #eb5e5e;
+        background-color: #5e72eb;
         border-radius: 10px;
         color: #ffffff;
         position: absolute;
@@ -469,7 +469,7 @@
         transition: 0.2s linear;
     }
     .button-no {
-        background-color: #5e72eb;
+        background-color: #eb5e5e;
         border-radius: 10px;
         color: #ffffff;
         position: absolute;
