@@ -203,6 +203,7 @@ document.querySelector('.close2').addEventListener("click", async function() {
     document.getElementById("md_qty").innerHTML = "1";
 
     document.getElementById("popupmenu").style.height = "0%";
+    document.getElementById("confirm_payment").style.height = "0%";
 
 });
 
@@ -213,6 +214,18 @@ $('#popupmenu').click(function(event) {
         document.getElementById("md_qty").innerHTML = "1";
 
         document.getElementById("popupmenu").style.height = "0%";
+    }
+});
+
+document.querySelector('.close3').addEventListener("click", async function() {
+    document.getElementById("confirm_payment").style.height = "0%";
+
+});
+
+$('#confirm_payment').click(function(event) {
+    var $target = $(event.target);
+    if (!$target.closest('#confirm_payment').length) {
+        document.getElementById("confirm_payment").style.height = "0%";
     }
 });
 
@@ -307,6 +320,7 @@ for (var i = 0; i < btns.length; i++) {
         this.className += " active";
     });
 }
+
 // Filter function
 function filterSelection() {
     let x = document.getElementsByClassName("product");
@@ -349,8 +363,43 @@ function checkoutfunc() {
     window.location = 'bill.html';
 }
 
+function confirmPayment() {
+    $(window).scrollTop(0);
+    // Hide sidebar in mobile mode
+    // Mobile and sidebar is open
+    if (($('#mySidebar2').css('height') != '0px') && ($('#confirm_payment').css('position') === 'absolute')) {
+        document.getElementById("mySidebar2").style.height = "0%";
+        document.body.style.overflow = '';
+
+        sleep(200).then(() => {
+            document.getElementById("confirm_payment").style.height = "200%";
+        });
+    }
+    // PC
+    else if ($('#confirm_payment').css('position') === 'fixed') {
+        document.getElementById("confirm_payment").style.height = "100%";
+    }
+    // Mobile and sidebar is not open
+    else {
+        document.getElementById("confirm_payment").style.height = "200%";
+    }
+
+    var agree = document.getElementById("confirm-yes");
+    agree.onclick = () => {
+        checkoutfunc();
+    }
+
+    console.log("check out");
+
+    var disag = document.getElementById("confirm-no");
+    disag.onclick = () => {
+        document.getElementById("confirm_payment").style.height = "0%";
+    }
+
+}
+
 const checkout = document.getElementById("checkout");
-checkout.addEventListener('click', checkoutfunc);
+checkout.addEventListener('click', confirmPayment);
 
 
 // Enable checkout button after valid table number is entered
@@ -362,14 +411,14 @@ document.getElementById("tablen").addEventListener("keyup", function() {
         document.getElementById("checkout").style.background = "#5e72eb";
         document.getElementById("checkout").style.border = "1px solid #5e72eb";
         document.getElementById('checkout').innerHTML = "Xác nhận thanh toán";
-        document.getElementById("checkoutform").addEventListener('submit', checkoutfunc);
+        document.getElementById("checkoutform").addEventListener('submit', confirmPayment);
 
     } else {
         document.getElementById('checkout').setAttribute("disabled", null);
         document.getElementById('checkout').innerHTML = "Mã số không hợp lệ";
         document.getElementById("checkout").style.background = "#b9c2f3";
         document.getElementById("checkout").style.border = "1px solid #b9c2f3";
-        document.getElementById("checkoutform").removeEventListener('submit', checkoutfunc);
+        document.getElementById("checkoutform").removeEventListener('submit', confirmPayment);
 
     }
 });
