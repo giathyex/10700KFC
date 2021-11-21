@@ -394,7 +394,7 @@ document.getElementById("tablen").addEventListener("touchstart", scrollinput);
 function scrollinput() {
     sleep(400).then(() => {
         if (window.screen.width <= 900) {
-            var elem = document.getElementById("npe");
+            var elem = document.getElementById("tablen");
             elem.scrollIntoView();
         }
     });
