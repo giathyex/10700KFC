@@ -17,6 +17,8 @@ live-server
 ```
 to view the result.
 
+The JS code has been obfuscated to prevent stupid vandals from copying and destroying. To view to original source code, visit the original_source_code folder.
+
 Preview pictures:
 
 <p align="center">

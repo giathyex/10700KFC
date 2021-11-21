@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10700KFC</title>
+    <!-- CSS files-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/ui.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="assets/images/ico.ico" type="image/x-icon">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+</head>
+
+<body class="bill">
+    <section class="header-main">
+        <center>
+            <div class="brand-wrap">
+                <img class="logo" src="assets/images/logo.png">
+            </div>
+        </center>
+    </section>
+    <section id="bill-print" class="bill-print">
+        <div class="bill-print-header">
+            <h1>10700KFC</h1>
+            <p id="datetime">
+            </p>
+        </div>
+        <div class="bill-print-user">
+            <p class="bill-print-user-id">
+                <span>Mã số bàn:</span>
+                <span id="tablenum">
+                </span>
+            </p>
+        </div>
+        <div class="bill-print-products" id="detaillist">
+        </div>
+        <div class="bill-print-total">
+            <p>
+                <span>Tổng cộng (VND):</span>
+                <span id="total">
+                </span>
+            </p>
+        </div>
+    </section>
+    <section class="bill-actions">
+        <button id="print">In hóa đơn</button>
+        <button id="new">Đơn mới</button>
+        <br>
+    </section>
+
+    <script src="assets/scripts/bill.js"></script>
+</body>
+
+</html>
