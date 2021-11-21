@@ -69,7 +69,7 @@ function sendOrderToServer(tableNo, totalPrice, orders) {
     }).then(() => {
         var noti = document.createElement('div');
         noti.className = "noti-to-customer";
-        noti.innerHTML = "Đơn đã được gửi tới bếp. <br> Xin quý khách vui lòng đợi trong giây lát!";
+        noti.innerHTML = "<center><h6>Đơn đã được gửi tới bếp. <br> Xin quý khách vui lòng đợi trong giây lát!</h6></center>";
         billPrint.appendChild(noti);
         window.localStorage.clear();
     });

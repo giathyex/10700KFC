@@ -116,7 +116,7 @@
     </section>
 
     <!-- Pop-up model -->
-    <div class="bg-modal" id="popupmenu">
+    <div class="bg-modal1" id="popupmenu">
         <div class="modal-contents" id="popupcontent">
             <div class="close2"><b><i class="fa fa-times-circle"></i></b></div>
             <form action="">
@@ -132,6 +132,25 @@
                     <input type="range" min="1" max="20" value="1" class="slider2" id="food_number">
                     <input type="button" class="button-add-to-cart" value="Thêm vào giỏ hàng" id="add-to-cart"></input>
                     <input type="button" class="button-remove-from-cart" value="Bỏ khỏi giỏ hàng" id="remove-from-cart"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pop-up confirm payment -->
+    <div class="bg-modal" id="confirm_payment">
+        <div class="modal-contents2" id="confirm_content">
+            <center>
+                <br>
+                <h5>Tiến hành thanh toán cho đơn hàng vừa chọn?<br><br>Đơn hàng sẽ được gửi tới bếp sau khi thanh toán.</h5>
+            </center>
+            <form action="">
+                <div class="column">
+                    <input type="button" class="button-no" value="Không" id="confirm-no"></input>
+                </div>
+                <div class="column">
+                    <input type="button" class="button-yes" value="Có" id="confirm-yes"></input>
+
                 </div>
             </form>
         </div>

@@ -370,7 +370,6 @@
         -o-transition: height 0.2s linear;
         transition: height 0.2s linear;
     }
-
     #confirm_payment {
         background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
@@ -386,7 +385,6 @@
         -o-transition: height 0.2s linear;
         transition: height 0.2s linear;
     }
-
     .modal-contents {
         height: 450px;
         width: 800px;
@@ -457,7 +455,7 @@
         color: #ffffff;
         position: absolute;
         bottom: 25px;
-        width: 525px;
+        width: 350px;
         -webkit-transition: 0.2s linear;
         -moz-transition: 0.2s linear;
         -o-transition: 0.2s linear;
@@ -477,7 +475,7 @@
         position: absolute;
         left: 30px;
         bottom: 25px;
-        width: 190px;
+        width: 350px;
         text-align: center;
         -webkit-transition: 0.2s linear;
         -moz-transition: 0.2s linear;
@@ -568,7 +566,7 @@
         height: 300px;
     }
     .modal-contents2 {
-        height: 450px;
+        height: 250px;
         width: 800px;
         background-color: white;
         padding: 25px 30px 25px 25px;
@@ -577,7 +575,7 @@
     }
     .modal-contents2 .column:first-child {
         float: left;
-        width: 30%;
+        width: 50%;
         padding-left: 20px;
         padding-right: 40px;
         padding-top: 30px;
@@ -585,8 +583,11 @@
     }
     .modal-contents2 .column:last-child {
         float: left;
-        width: 70%;
-        height: 300px;
+        width: 50%;
+        padding-left: 20px;
+        padding-right: 40px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
     section.productslist>div {
         cursor: pointer;
@@ -1086,7 +1087,6 @@
         -o-transition: height 0.2s linear;
         transition: height 0.2s linear;
     }
-
     #confirm_payment {
         background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
@@ -1102,7 +1102,6 @@
         -o-transition: height 0.2s linear;
         transition: height 0.2s linear;
     }
-    
     .modal-contents {
         height: fit-content;
         width: 90%;
@@ -1110,6 +1109,17 @@
         padding: 25px 30px 25px 25px;
         position: absolute;
         top: 5%;
+        left: 5%;
+        right: 5%;
+        border-radius: 15px;
+    }
+    .modal-contents2 {
+        height: fit-content;
+        width: 90%;
+        background-color: white;
+        padding: 25px 30px 25px 25px;
+        position: absolute;
+        top: 10%;
         left: 5%;
         right: 5%;
         border-radius: 15px;
@@ -1158,6 +1168,42 @@
     .button-remove-from-cart:focus:hover {
         background-color: #eb5e5e !important;
         color: #000000;
+    }
+    .button-no {
+        background-color: #5e72eb;
+        border-radius: 10px;
+        margin-top: 60px;
+        font-family: "Hind", sans-serif;
+        color: #ffffff;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-no:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-yes {
+        background-color: #eb5e5e;
+        border-radius: 10px;
+        margin-top: 10px;
+        font-family: "Hind", sans-serif;
+        color: #ffffff;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+    }
+    .button-yes:hover {
+        transform: scale(1.05);
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
     }
     .close2 {
         position: absolute;

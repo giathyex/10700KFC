@@ -207,24 +207,22 @@ document.querySelector('.close2').addEventListener("click", async function() {
 
 });
 
+// Close on click outside
 $('#popupmenu').click(function(event) {
     var $target = $(event.target);
     if (!$target.closest('#popupcontent').length) {
-        document.getElementById("food_number").value = 1;
-        document.getElementById("md_qty").innerHTML = "1";
-
         document.getElementById("popupmenu").style.height = "0%";
+
+        sleep(200).then(() => {
+            document.getElementById("food_number").value = 1;
+            document.getElementById("md_qty").innerHTML = "1";
+        });
     }
 });
 
-document.querySelector('.close3').addEventListener("click", async function() {
-    document.getElementById("confirm_payment").style.height = "0%";
-
-});
-
-$('#confirm_payment').click(function(event) {
-    var $target = $(event.target);
-    if (!$target.closest('#confirm_payment').length) {
+$('#confirm_payment').click(function(event2) {
+    var $target2 = $(event2.target);
+    if (!$target2.closest('#confirm_content').length) {
         document.getElementById("confirm_payment").style.height = "0%";
     }
 });
@@ -471,11 +469,17 @@ window.addEventListener('resize', function(event) {
         if (document.getElementById("popupmenu").style.height > "0%") {
             document.getElementById("popupmenu").style.height = "100%";
         }
+        if (document.getElementById("confirm_payment").style.height > "0%") {
+            document.getElementById("confirm_payment").style.height = "100%";
+        }
         document.getElementById("mySidebar2").style.height = document.getElementById("foodlist").style.height;
         document.body.style.overflow = 'scroll';
     } else if (window.screen.width <= 900) {
         if (document.getElementById("popupmenu").style.height > "0%") {
             document.getElementById("popupmenu").style.height = "200%";
+        }
+        if (document.getElementById("confirm_payment").style.height > "0%") {
+            document.getElementById("confirm_payment").style.height = "200%";
         }
         if (parseInt($('#mySidebar2').css('height')) < 1) {
             document.getElementById("mySidebar2").style.height = "0%";
