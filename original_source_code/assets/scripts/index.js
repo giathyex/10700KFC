@@ -223,6 +223,7 @@ $('#popupmenu').click(function(event) {
 $('#confirm_payment').click(function(event2) {
     var $target2 = $(event2.target);
     if (!$target2.closest('#confirm_content').length) {
+        document.getElementById('tablen').style.display = "";
         document.getElementById("confirm_payment").style.height = "0%";
     }
 });
@@ -362,11 +363,6 @@ function checkoutfunc() {
 }
 
 function confirmPayment() {
-    var hideKeyboard = function() {
-        document.activeElement.blur();
-        $("#tablen").blur();
-    };
-
     $(window).scrollTop(0);
     // Hide sidebar in mobile mode
     // Mobile and sidebar is open
@@ -375,6 +371,7 @@ function confirmPayment() {
         document.body.style.overflow = '';
 
         sleep(200).then(() => {
+            document.getElementById('tablen').style.display = "none";
             document.getElementById("confirm_payment").style.height = "200%";
         });
     }
@@ -395,6 +392,7 @@ function confirmPayment() {
     var disag = document.getElementById("confirm-no");
     disag.onclick = () => {
         document.getElementById("confirm_payment").style.height = "0%";
+        document.getElementById('tablen').style.display = "";
     }
 
 }
