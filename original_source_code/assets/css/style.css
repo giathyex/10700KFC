@@ -566,7 +566,7 @@
         height: 300px;
     }
     .modal-contents2 {
-        height: 250px;
+        height: 350px;
         width: 800px;
         background-color: white;
         padding: 25px 30px 25px 25px;
@@ -697,6 +697,10 @@
     .btn.active {
         background-color: #fdc094;
         color: rgb(0, 0, 0);
+    }
+    #warning-icon {
+        font-size: 100px;
+        color: darkgoldenrod;
     }
 }
 
@@ -1170,7 +1174,7 @@
         color: #000000;
     }
     .button-no {
-        background-color: #5e72eb;
+        background-color: #eb5e5e;
         border-radius: 10px;
         margin-top: 60px;
         font-family: "Hind", sans-serif;
@@ -1188,7 +1192,7 @@
         transition: 0.2s linear;
     }
     .button-yes {
-        background-color: #eb5e5e;
+        background-color: #5e72eb;
         border-radius: 10px;
         margin-top: 10px;
         font-family: "Hind", sans-serif;
@@ -1409,5 +1413,9 @@
     }
     .md-price {
         text-align: center;
+    }
+    #warning-icon {
+        font-size: 2.5em;
+        color: darkgoldenrod;
     }
 }
