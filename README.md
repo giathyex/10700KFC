@@ -17,7 +17,7 @@ live-server
 ```
 to view the result.
 
-The JS code has been obfuscated to prevent stupid vandals from copying and destroying. To view to original source code, visit the original_source_code folder.
+The JS code has been obfuscated to prevent stupid vandals from copying and destroying. To view to original source code, visit the [original_source_code](https://github.com/giathyex/10700KFC/tree/main/original_source_code) folder.
 
 Preview pictures:
 
