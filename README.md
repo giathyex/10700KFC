@@ -69,4 +69,4 @@ Mobile version of kitchen interface:
 No framework, no complicated DB. Just pure HTML, JS + JQuery, Firestore.
 
 **Note:** 
-The true source code is in the **_ _original_source_code_ _** folder.
+The true source code is in the **_ original_source_code _** folder.
