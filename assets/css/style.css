@@ -459,7 +459,7 @@
         -webkit-transition: 0.2s linear;
         -moz-transition: 0.2s linear;
         -o-transition: 0.2s linear;
-        transition: 0.2s linear;
+        transition: 0.1s linear;
     }
     .button-yes:hover {
         transform: scale(1.05);
