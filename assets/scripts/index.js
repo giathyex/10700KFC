@@ -391,7 +391,7 @@ document.getElementById("selectedproduct").addEventListener("DOMSubtreeModified"
 document.getElementById("tablen").addEventListener("click", scrollinput);
 document.getElementById("tablen").addEventListener("touchstart", scrollinput);
 
-function scrollinput() {
+async function scrollinput() {
     sleep(400).then(() => {
         if (window.screen.width <= 900) {
             var elem = document.getElementById("tablen");
