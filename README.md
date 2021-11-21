@@ -72,6 +72,6 @@ No framework, no complicated DB. Just pure HTML, JS + JQuery, Firestore.
 
 The real source code is in the ***original_source_code*** folder.
 
-Link of demo on [youtube]{https://youtu.be/X1Puo5LXK74}
+Link of demo on [youtube](https://youtu.be/X1Puo5LXK74)
 
 The username and password for kitchen: temp 123456.
