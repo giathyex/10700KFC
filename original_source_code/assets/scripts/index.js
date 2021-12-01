@@ -48,6 +48,14 @@ slider.oninput = function() {
     output.innerHTML = this.value;
 }
 
+const suggestions = document.getElementById('suggestions');
+
+function addSearchOptions(name, list) {
+    var option = document.createElement('option');
+    option.innerHTML = toString(name);
+    console.log(option);
+    list.appendChild(option);
+}
 
 // Render food list from database
 function renderList(doc, indexc) {
@@ -81,6 +89,8 @@ function renderList(doc, indexc) {
 
     foodList.addItem(namec.innerHTML, parseInt(doc.data().price));
     $("#foodlist").append(divc);
+
+    addSearchOptions("con cặc bự", suggestions);
 }
 
 
