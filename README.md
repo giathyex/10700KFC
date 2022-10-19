@@ -4,6 +4,8 @@ For a demo run, visit [this link](https://giathyex.github.io/10700KFC/).
 
 Demo run with kitchen, [click here](https://giathyex.github.io/10700KFC/kitchen/kitchen.html).
 
+Wanna run with backend? [Click here](https://github.com/LittleLegend-Pengiun/10700KFC-extended)
+
 For some stupid security reasons, when you decide to run the HTML file locally via browser, you have to use [Visual Studio Code](https://code.visualstudio.com/) with [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension.
 
 Or you can install live-server by the following command:
@@ -16,8 +18,6 @@ Then at the directory holding the index.html file, type in cmd/terminal:
 live-server
 ```
 to view the result.
-
-The JS code has been obfuscated to prevent stupid vandals from copying and destroying. To view to original source code, visit the [original_source_code](https://github.com/giathyex/10700KFC/tree/main/original_source_code) folder.
 
 Preview pictures:
 
